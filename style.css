@@ -1,0 +1,239 @@
+body{
+    font-family: Perpetua, 'Perpetua Titling MT', 'Times New Roman',serif;
+    font-size: 130%;
+}
+
+a{ 
+    color: #e37e1c;
+    text-decoration: none;
+}
+
+a:hover{
+    text-decoration: underline;
+}
+
+/* ---------------  HEADER ------------------------------------------------------------- */
+
+.header-line {
+    width: 95%;
+    height: 2px;
+    background-color: #e37e1c;
+    border: none;
+}
+
+/*NAVIGATION LINKS*/
+.nav-link{
+    padding: 10px 20px;
+    text-align: center;
+}
+
+.nav-link a{
+    font-size: 150%;
+    font-weight: bold;
+}
+
+/*---------------------------------------------------------------------------------------*/
+
+
+
+
+/*-----------------FOOTER----------------------------------------------------------------*/
+.footer-line{
+    width: 50%;
+    height: 0.5px;
+    background-color: #e37e1c;
+    border: none;
+}
+
+footer{
+    display: flex;
+    justify-content: center;
+    font-size: 90%;
+}
+
+#footer-email{
+    font-size: 90%;
+    color: black;
+}
+
+.social-media-icon{
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    padding-top: 20%;
+    margin: 0px 3px; 
+}
+
+.social-media-row{
+    text-align: center; 
+}
+
+.social-media-row a{
+    text-decoration: none;
+    display: inline-block;  
+}
+
+.social-media-row a:hover img {
+    filter: invert(54%) sepia(86%) saturate(421%) hue-rotate(350deg) brightness(95%) contrast(95%);
+}
+
+#minilogo-row{
+    text-align: center; 
+    width: 20%;
+}
+
+#minilogo{
+    width: 30%;
+}
+
+#email-row{
+    text-align: center;
+}
+
+#footer-home{
+    text-align: left; 
+    padding-top: 28px; 
+    width:5%;
+}
+
+#footer-food{
+    text-align: left; 
+    padding-top: 2px;
+}
+
+.footer-drinks-about{
+    text-align: left;
+}
+
+#footer-contact{
+    text-align: left; 
+    vertical-align: top;
+}
+
+#newsletter input[type="submit"]{
+    font-family: Georgia,Times,'Times New Roman',serif;
+    cursor: pointer;
+} 
+
+#newsletter input[type="submit"]:active {
+    transform: scale(0.95);   /* shrink slightly */
+  }
+
+#newsletter input[type="submit"]:hover {
+    background-color: rgba(235, 149, 63, 0.8);
+
+}
+/*--------------------------------------------------------------------------------------*/
+
+
+
+
+
+/******************** INDEX PAGE ********************************************************/
+
+/*WELCOME IMAGE*/
+.welcome-image{
+    width: 98%;
+    display: block; /*display:block is like putting an image in its own box*/
+    margin: auto;
+}
+
+/*TEXT UNDER WELCOME IMAGE*/
+.welcome-text{
+    width: 35%;
+    margin: auto;
+    text-align: justify;
+}
+
+/*REVIEWS*/
+.reviews-text{
+    width: 35%;
+    margin: auto;
+    text-align: center;
+} 
+
+/****************************************************************************************/
+
+
+
+
+/******************** ABOUT US PAGE *****************************************************/
+
+.about-us{
+    display: flex;
+    align-items: center;
+    width: 99%;
+    margin: auto;
+}
+
+.about-us-image{
+    width: 48%;
+    margin-right: 20px;
+}
+
+.about-us-text{
+    width: 49%;
+    margin: auto;
+    text-align: justify;
+}
+
+/****************************************************************************************/
+
+
+
+/*********************** CONTACT US ****************************************************/
+
+.contact-us-title{
+    text-align: center;
+    color: #e37e1c;
+}
+
+.contact-us{
+    width: 59%;
+    margin: auto;
+    text-align: justify;
+}
+
+.contact-us-form{
+    width: 60%;
+    margin: auto;
+    text-align: left;
+}
+
+.contact-us-form label{
+    font-weight: bold;
+}
+
+.contact-us-form input[type="text"], 
+.contact-us-form input[type="email"],
+.contact-us-form textarea {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.submit-button{
+    text-align: right;
+}
+
+.submit-button input[type="submit"] {
+    padding: 1% 2.5%; 
+    font-size: 90%;  
+    font-family: inherit;
+    cursor: pointer;
+} 
+
+.submit-button input[type="submit"]:active {
+    transform: scale(0.95);   /* shrink slightly */
+  }
+
+.submit-button input[type="submit"]:hover {
+    background-color: rgba(235, 149, 63, 0.8);
+
+}
+
+
+
+/***************************************************************************************/
+
+
+/* ask him about the problem you have with the nav bar and the smaller window, also is my nav bar too big, i mean the lettering*/

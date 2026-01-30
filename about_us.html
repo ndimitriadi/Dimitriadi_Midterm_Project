@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+
+<html lang="en">    
+
+    <head>
+       <title> About Us</title> 
+       <meta charset="UTF-8">
+       <link rel="icon" href="./images/tabicon.png">
+       <meta name="author" content="Nikoletta Dimitriadi">
+
+       <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+
+        <!-- HEADER -->
+        <header>
+            <br>
+            <table width="100%">
+                <tr>
+                    <td width="20%">
+                        <a href="./index.html">
+                            <img src="./images/logo.png">
+                        </a>
+                    </td>
+
+                    <td width="50%">
+                        <hr class="header-line">
+                    </td>
+
+                    <td class="nav-link">
+                        <a href="./index.html"> Home</a>
+                    </td>
+
+                    <td class="nav-link">
+                        <a href="#"> Food</a>
+                    </td> 
+
+                    <td class="nav-link">
+                        <a href="#"> Drinks</a>
+                    </td>
+
+                    <td class="nav-link">
+                        <a href="./about_us.html"> About</a>
+                    </td>
+
+                    <td class="nav-link">
+                        <a href="./contact_us.html"> Contact</a>
+                    </td>
+                </tr>
+            </table>
+            <br>
+            <br>
+        </header>
+
+        <!-- ABOUT US -->
+        <div class="about-us">
+
+            <!-- flex turn the cointainer into a flexbox so child elements (image and text) are laid out horizontally side by side
+                align items: vertically centers items
+                width: the containers is 90% of the page
+                margin; auto horizontallly centers the container on the page-->
+
+            <img src="./images/about_us.jpeg" 
+                    alt="Ancient Greek caryatid statues supporting a stone structure against an orange background, with the text ‘About Us – Athenian Nectar." 
+                    class="about-us-image">
+
+            <div class="about-us-text">
+                <h2>Welcome to Athenian Nectar – Savor the Elixir of Athenian Delights</h2>
+                <p>At Athenian Nectar, we believe that the vibrant city of Athens is not just a destination; it’s a gastronomic journey waiting to be explored. Nestled in the cradle of ancient history and modern charm, Athenian Nectar is your ultimate guide to the rich tapestry of flavors that Athens has to offer.</p>
+                <h3>Our Story:</h3>
+                    <p>Athenian Nectar is born out of a deep passion for the intersection of culture, history, and the culinary arts. As avid food enthusiasts, we embarked on a quest to uncover the hidden gems, traditional delights, and contemporary innovations that make Athens a food lover’s paradise.</p>
+                <h3>Our Mission:</h3>
+                    <p> At Athenian Nectar, our mission is to celebrate the culinary heritage of Athens and connect food lovers from around the world to the heart and soul of Greek gastronomy. We aim to foster a global community of food enthusiasts who share our passion for authentic flavors, cultural exploration, and the joy that comes from sharing a delicious meal with loved ones.</p>
+                <h3>Join Us on this Culinary Odyssey:</h3> 
+                    <p> Embark on a journey of taste and discovery with Athenian Nectar. Whether you’re a local seeking fresh culinary inspiration or a traveler eager to explore Athens through its gastronomic delights, our blog is your passport to a world of flavors, aromas, and stories waiting to be savored.</p>
+                    <p> Indulge your senses, ignite your curiosity, and join us as we navigate the gastronomic wonders of Athens – where every bite tells a tale and every sip is a celebration. Welcome to Athenian Nectar, where the journey is as delectable as the destination. Cheers to the art of savoring life!</p>
+            </div>
+        </div>
+
+
+        <!-- FOOTER-->
+        <div>
+            <br>
+            <!-- orange line-->
+            <hr class="footer-line">
+
+            <footer>
+                <table text-align: center;>
+                    <tr>
+                        <!-- mini logo-->
+                        <td  rowspan = "3" id="minilogo-row"> 
+                            <img src="./images/minilogo.jpeg" id="minilogo">
+                        </td>
+                        
+                        <!-- linking the home page-->
+                        <td id="footer-home">
+                        <a href="./index.html"> Home </a>
+                        </td>
+
+                        <!-- newsletter -->
+                        <td rowspan="5" width="10%" id="newsletter" >
+                            <form action="#">
+                                <p>Subscribe to our Newsletter</p>
+                                <table cellpadding="5" cellspacing="0">
+                                    <tr>
+                                        <td>
+                                            <input type="email" name="email">
+                                        </td>
+                                        <td>
+                                            <input type="submit" value="Subscribe">
+                                        </td>
+                                    </tr>
+                                </table>
+                            </form>
+                        </td>
+                    </tr>
+                
+                    <tr>
+                        <!-- linking the food page-->
+                        <td id="footer-food">
+                            <a href="#"> Food </a>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <!-- linking the drinks page-->
+                        <td id="footer-drinks-about">
+                            <a href="#"> Drinks </a>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <!-- email -->
+                        <td rowspan="1" id="email-row"> 
+                            <a href="mailto:atheniannectar@gmail.com" id="footer-email">atheniannectar@gmail.com</a> 
+                        </td> 
+                        
+                        <!-- linking the about us page -->
+                        <td id="footer-drinks-about" >
+                            <a href="./about_us.html"> About </a>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <!-- social media links-->
+                        <td class="social-media-row">
+                            <a href="#">
+                                <img src="./images/instagram.png" class="social-media-icon">
+                            </a>
+                            
+                            <a href="#">
+                                <img src="./images/twitter.png" class="social-media-icon">
+                            </a>
+                            
+                            <a href="#" >
+                                <img src="./images/facebook.png" class="social-media-icon">
+                            </a>                    
+                        </td>
+                        
+                        <!-- linking the contact us page-->
+                        <td id="footer-contact">
+                            <a href="./contact_us.html"> Contact </a>
+                        </td>
+                    </tr>
+
+                </table>
+            </footer>
+        </div>
+
+    </body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+
+<html lang="en">  
+
+    <head>
+        <meta charset="UTF-8"> <!-- ensures text, symbols and emojis desplay correctly-->
+        <title> Contact Us</title> 
+        <link rel="icon" href="./images/tabicon.png">
+        <meta name="author" content="Nikoletta Dimitriadi">
+
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+
+        <!-- HEADER -->
+        <header>
+            <br>
+            <table width="100%">
+                <tr>
+                    <td width="20%">
+                        <a href="./index.html">
+                            <img src="./images/logo.png">
+                        </a>
+                    </td>
+
+                    <td width="50%">
+                        <hr class="header-line">
+                    </td>
+
+                    <td class="nav-link">
+                        <a href="./index.html"> Home</a>
+                    </td>
+
+                    <td class="nav-link">
+                        <a href="#"> Food</a>
+                    </td> 
+
+                    <td class="nav-link">
+                        <a href="#"> Drinks</a>
+                    </td>
+
+                    <td class="nav-link">
+                        <a href="./about_us.html"> About</a>
+                    </td>
+
+                    <td class="nav-link">
+                        <a href="./contact_us.html"> Contact</a>
+                    </td>
+                </tr>
+            </table>
+            <br>
+            <br>
+        </header>
+
+        <!-- CONTACT US -->
+        <div>
+            <h1 class="contact-us-title"> Contact Us</p></h1>
+            <div class="contact-us">
+                <form action="#" method="post" class="contact-us-form">
+                    
+                    <p>
+                        <label>Name:</label><br>
+                        <input type="text" name="name" required>
+                    </p>
+                
+                    <p>
+                        <label>Email:</label><br>
+                        <input type="email" name="email" required>
+                    </p>
+                
+                    <p>
+                        <label>Message:</label><br>
+                        <textarea name="message" rows="7" required></textarea>
+                    </p>
+                
+                    <p class="submit-button"> 
+                        <input type="submit" value="Submit"> 
+                    </p>
+                
+                </form>
+            </div>
+        </div>
+
+        <!-- FOOTER-->
+        <div>
+            <br>
+            <!-- orange line-->
+            <hr class="footer-line">
+
+            <footer>
+                <table text-align: center;>
+                    <tr>
+                        <!-- mini logo-->
+                        <td  rowspan = "3" id="minilogo-row"> 
+                            <img src="./images/minilogo.jpeg" id="minilogo">
+                        </td>
+                        
+                        <!-- linking the home page-->
+                        <td id="footer-home">
+                        <a href="./index.html"> Home </a>
+                        </td>
+
+                        <!-- newsletter -->
+                        <td rowspan="5" width="10%" id="newsletter" >
+                            <form action="#">
+                                <p>Subscribe to our Newsletter</p>
+                                <table cellpadding="5" cellspacing="0">
+                                    <tr>
+                                        <td>
+                                            <input type="email" name="email">
+                                        </td>
+                                        <td>
+                                            <input type="submit" value="Subscribe">
+                                        </td>
+                                    </tr>
+                                </table>
+                            </form>
+                        </td>
+                    </tr>
+                
+                    <tr>
+                        <!-- linking the food page-->
+                        <td id="footer-food">
+                            <a href="#"> Food </a>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <!-- linking the drinks page-->
+                        <td id="footer-drinks-about">
+                            <a href="#"> Drinks </a>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <!-- email -->
+                        <td rowspan="1" id="email-row"> 
+                            <a href="mailto:atheniannectar@gmail.com" id="footer-email">atheniannectar@gmail.com</a> 
+                        </td> 
+                        
+                        <!-- linking the about us page -->
+                        <td id="footer-drinks-about" >
+                            <a href="./about_us.html"> About </a>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <!-- social media links-->
+                        <td class="social-media-row">
+                            <a href="#">
+                                <img src="./images/instagram.png" class="social-media-icon">
+                            </a>
+                            
+                            <a href="#">
+                                <img src="./images/twitter.png" class="social-media-icon">
+                            </a>
+                            
+                            <a href="#" >
+                                <img src="./images/facebook.png" class="social-media-icon">
+                            </a>                    
+                        </td>
+                        
+                        <!-- linking the contact us page-->
+                        <td id="footer-contact">
+                            <a href="./contact_us.html"> Contact </a>
+                        </td>
+                    </tr>
+
+                </table>
+            </footer>
+        </div>
+
+    </body>
+</html>
