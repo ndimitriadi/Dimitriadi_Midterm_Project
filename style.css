@@ -439,6 +439,10 @@ a.contact-email:hover{
         grid-template-columns:1fr;
         padding:25px;
     }
+    .bottom-section .container{
+        grid-template-columns:1fr;
+        padding:25px;
+    }
     .info-grid{
         grid-template-columns:1fr;
     }
