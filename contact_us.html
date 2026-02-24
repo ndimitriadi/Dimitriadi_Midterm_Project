@@ -55,33 +55,103 @@
         </header>
 
         <!-- CONTACT US -->
-        <div>
-            <h1 class="contact-us-title"> Contact Us</p></h1>
-            <div class="contact-us">
-                <form action="#" method="post" class="contact-us-form">
-                    
-                    <p>
-                        <label>Name:</label><br>
-                        <input type="text" name="name" required>
+        <section class="contact-us">
+            <!--top section -->
+
+            <section class="top-section">
+
+                <div class="container">
+
+                    <div class="left-column">
+
+                        <h1 class="contact-us-title">Contact Us</h1>
+
+                        <a href="mailto:atheniannectar@gmail.com" class="contact-email">atheniannectar@gmail.com</a>
+
+                        <div class="d-flex social-media-row-contact">
+                                <a href="#"><img src="./images/instagram.png" class="social-media-icon" alt="Instagram"></a>
+                                <a href="#"><img src="./images/twitter.png" class="social-media-icon" alt="Twitter"></a>
+                                <a href="#"><img src="./images/facebook.png" class="social-media-icon" alt="Facebook"></a>
+                        </div>
+
+                        <div class="info-grid">
+                            <div>
+                                <h3>Customer Support</h3>
+                                <p>
+                                    Our support team is available around the clock to address any concerns.
+                                </p>
+                            </div>
+
+                            <div>
+                                <h3>Feedback and Suggestions</h3>
+                                <p>
+                                    We value your feedback and continuously improve Athenian Nectar.
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- contact form -->
+                    <div class="form-card">
+
+                        <h2>Get in Touch</h2>
+
+                        <p class="subtitle">
+                            You can reach us anytime
+                        </p>
+
+                        <form id="contactForm">
+                            <div class="row">
+                                <input placeholder="First name" type="text" name="name" maxlength="25" required>
+                                <input placeholder="Last name" type="text" name="name" maxlength="25" required>
+                            </div>
+
+                            <input class="row" placeholder="Your email" type="email" name="email" maxlength="25" required>
+                            <input class="row" placeholder="Subject" type="text" name="name" maxlength="25" required>
+
+                            <textarea class="row" placeholder="How can we help?" name="message" rows="7" maxlength="1000" required></textarea>
+
+                            <button class="contact-button"> Submit </button>
+
+                            <p class="terms">
+                                By contacting us you agree to our
+                                <a href="#"><span>Terms of service</span></a>
+                                and
+                                <a href="#"><span>Privacy Policy</span></a>
+                            </p>
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </section>
+        </section>
+
+        <hr class="line">
+
+        <!-- bottom section -->
+        <section class="bottom-section">
+            <div class="container">
+
+                <div class="map">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3143.793863099788!2d23.83052597645764!3d38.00526837192822!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a199709f059559%3A0xad1dacf4713268b2!2sAmerican%20College%20of%20Greece!5e0!3m2!1sen!2sgr!4v1771940459798!5m2!1sen!2sgr">
+                    </iframe>
+                </div>
+
+                <div class="location">
+                    <p> Our Location </p>
+                    <h2> Connecting Near and Far </h2>
+                    <p class="small">
+                        Athenian Nectar <br>
+                        Gravias 6, Agia Paraskevi 153 42 <br>
+                        Athens, Greece
                     </p>
-                
-                    <p>
-                        <label>Email:</label><br>
-                        <input type="email" name="email" required>
-                    </p>
-                
-                    <p>
-                        <label>Message:</label><br>
-                        <textarea name="message" rows="7" required></textarea>
-                    </p>
-                
-                    <p class="submit-button"> 
-                        <input type="submit" value="Submit"> 
-                    </p>
-                
-                </form>
+                </div>
             </div>
-        </div>
+        </section>
 
         <!-- FOOTER-->
         <div>
