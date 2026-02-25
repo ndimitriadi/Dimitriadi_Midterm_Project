@@ -38,90 +38,183 @@ a:hover{
 
 
 /*-----------------FOOTER----------------------------------------------------------------*/
-.footer-line{
+.footer-line {
     width: 50%;
-    height: 0.5px;
+    height: 1px;
     background-color: #e37e1c;
     border: none;
+    margin-bottom: 30px;
 }
 
-footer{
+/* Footer layout */
+.footer {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 800px;
+    margin: 0 auto 40px;
+    padding: 0 20px;
     font-size: 90%;
 }
 
-#footer-email{
-    font-size: 90%;
+/* Columns */
+.footer-col {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Left column */
+.footer-logo {
+    width: 300px;
+}
+
+.footer-email {
     color: black;
+    text-decoration: none;
+    font-size: 90%;
 }
 
-.social-media-icon{
+.footer-social {
+    display: flex;
+    gap: 10px;
+}
+
+.footer-social img {
     width: 20px;
     height: 20px;
-    object-fit: contain;
-    padding-top: 20%;
-    margin: 0px 3px; 
 }
 
-.social-media-row{
-    text-align: center; 
-}
-
-.social-media-row a{
+.footer-social a{
     text-decoration: none;
     display: inline-block;  
 }
 
-.social-media-row a:hover img {
+.footer-social a:hover img {
     filter: invert(54%) sepia(86%) saturate(421%) hue-rotate(350deg) brightness(95%) contrast(95%);
 }
 
-#minilogo-row{
-    text-align: center; 
-    width: 20%;
+/* Middle links */
+.footer-links a {
+    color: #e37e1c;
+    text-decoration: none;
 }
 
-#minilogo{
-    width: 30%;
+.footer-links a:hover {
+    color:#000000;
 }
 
-#email-row{
-    text-align: center;
+.footer-links {
+    gap: 22px; /* Adjust this number up or down to match the height of your other columns */
 }
 
-#footer-home{
-    text-align: left; 
-    padding-top: 28px; 
-    width:5%;
-}
-
-#footer-food{
-    text-align: left; 
-    padding-top: 2px;
-}
-
-.footer-drinks-about{
+.newsletter{
+    background:white;
+    padding:15px;
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.1);
     text-align: left;
+
+    max-width: 210px; /* Changed from 220px */
+    width: 100%;
 }
 
-#footer-contact{
-    text-align: left; 
-    vertical-align: top;
+.newsletter form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
-#newsletter input[type="submit"]{
-    font-family: Georgia,Times,'Times New Roman',serif;
-    cursor: pointer;
-} 
 
-#newsletter input[type="submit"]:active {
-    transform: scale(0.95);   /* shrink slightly */
-  }
+.newsletter input[type="email"] {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 14px;
+    margin-bottom: 10px;
 
-#newsletter input[type="submit"]:hover {
-    background-color: rgba(235, 149, 63, 0.8);
+    border-radius: 20px;
+    border: 1px solid #ccc;
 
+    font-size: 14px;
+    font-family: inherit;
+
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.newsletter-button{
+    width:50%;
+    padding:10px;
+    background:#e37e1c;
+    color:white;
+    border:none;
+    border-radius:30px;
+    font-size:16px;
+    cursor:pointer;
+    font-family: 'Goergia', 'Perpetua', 'Perpetua Titling MT', 'Times New Roman',serif;;
+
+}
+
+.newsletter-button:hover{
+    background: rgba(235, 149, 63, 0.8);
+}
+
+.footer-terms{
+    font-size:14px;
+    color:#777;
+    text-align:left;
+    margin-top:10px;
+}
+
+
+@media (max-width: 900px) {
+    .footer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 25px;
+
+        /* New additions for the terms section */
+        position: relative; 
+        padding-bottom: 80px; /* Creates empty space at the bottom so nothing overlaps */
+    }
+
+    .footer-newsletter form {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-newsletter input {
+        width: 100%;
+    }
+
+    .footer-terms{
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%); /* Centers it perfectly */
+        width: 100%;
+        text-align: center;
+    }
+
+    .footer-social{
+        justify-content: center;
+    }
+
+    .footer-links {
+        align-items: center; /* Centers the links themselves */
+        width: 30%; /* Prevents the lines from touching the edges of the phone screen */
+        
+        /* The delicate orange lines */
+        border-top: 1px solid black; 
+        border-bottom: 1px solid black;
+        
+        padding: 30px 0; /* Creates space between the lines and the text */
+        gap: 15px; /* Brings the individual links slightly closer together */
+    }
+
+    .newsletter input[type="email"] {
+    width: 100%;}
 }
 /*--------------------------------------------------------------------------------------*/
 
@@ -136,6 +229,7 @@ footer{
     width: 98%;
     display: block; /*display:block is like putting an image in its own box*/
     margin: auto;
+    border-radius: 20px;
 }
 
 /*TEXT UNDER WELCOME IMAGE*/
@@ -152,6 +246,33 @@ footer{
     height: 0.5px;
     background-color: #000000;
     border: none;
+}
+
+@media (max-width: 900px) {
+    
+    /* If you chose Option 1, this forces the side-by-side layout to stack vertically */
+    .welcome-container {
+        flex-direction: column; 
+        gap: 20px; /* Reduces the gap slightly for mobile */
+        margin: 20px auto;
+    }
+
+    /* This ensures both the image and the text use the full width of the phone screen */
+    .welcome-image {
+        width: 95%; /* Takes up almost the whole screen, leaving a tiny margin */
+        margin: 0 auto;
+    }
+
+    .welcome-text {
+        width: 90%; /* Gives the text nice breathing room on the edges */
+        padding: 0 10px; /* Adds a little extra cushion */
+    }
+    
+    /* Shrinks the main heading slightly so it fits better on small screens */
+    .welcome-text h2 {
+        font-size: 24px; 
+        text-align: center; /* Centering the header often looks great on mobile */
+    }
 }
 
 /*TESTIMONIALS*/
@@ -371,7 +492,6 @@ a.contact-email {
 }
 
 a.contact-email:hover{
-    color: #e37e1c;
     text-decoration: underline;
 }
 
@@ -386,6 +506,14 @@ a.contact-email:hover{
 
 .social-media-row-contact a:hover img {
     filter: invert(54%) sepia(86%) saturate(421%) hue-rotate(350deg) brightness(95%) contrast(95%);
+}
+
+.social-media-icon{
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    padding-top: 20%;
+    margin: 0px 3px; 
 }
 
 .contact-us .container{

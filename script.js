@@ -1,5 +1,22 @@
+/* =========================================================================
+       LOAD FOOTER COMPONENT
+       ========================================================================= */
+    const footerPlaceholder = document.querySelector('#footer-placeholder');
+    
+    if (footerPlaceholder) {
+        fetch('footer.html')
+            .then(response => {
+                if (!response.ok) throw new Error("Could not load footer");
+                return response.text();
+            })
+            .then(data => {
+                footerPlaceholder.innerHTML = data;
+            })
+            .catch(error => console.error("Error loading footer:", error));
+    }
 
-/*--------------------TESTIMONIALS--------------------------------------------------------*
+
+/*--------------------TESTIMONIALS--------------------------------------------------------*/
 
   /*grabs all testimonials items*/
   const carousel = document.querySelector('.carousel');
