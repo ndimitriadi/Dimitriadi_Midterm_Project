@@ -14,24 +14,135 @@ a:hover{
 
 /* ---------------  HEADER ------------------------------------------------------------- */
 
-.header-line {
-    width: 95%;
-    height: 2px;
-    background-color: #e37e1c;
-    border: none;
+#header-placeholder {
+    position: sticky;
+    top: 20px;
+    z-index: 1000;
+    width: 100%;
 }
 
-/*NAVIGATION LINKS*/
-.nav-link{
-    padding: 10px 20px;
+/* --- Floating Pill Header --- */
+.athenian-header {
+    padding: 0 20px;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Essential for vertical centering */
+    max-width: 1100px;
+    margin: 0 auto;
+    background-color: #ffffff; /* Darker background for contrast */
+    padding: 12px 30px;
+    border-radius: 50px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+}
+
+.logo-section img {
+    height: 40px; /* Adjust this to make it look right on desktop */
+    width: auto;  /* Maintains aspect ratio */
+    display: block;
+}
+
+/* ---Links --- */
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: black;
+    text-decoration: none;
+    font-size: 20px;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #e37e1c;
+}
+
+.pill-divider {
+    width: 1px;
+    height: 15px;
+    background-color: black;
+}
+
+/* --- Centered Hamburger Button --- */
+.hamburger-btn {
+    display: none;
+    flex-direction: column;
+    justify-content: center; /* Centers lines vertically inside button */
+    align-items: center;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    height: 24px;
+    width: 24px;
+    
+}
+
+.hamburger-btn span {
+    width: 20px;
+    height: 2px;
+    background-color: rgb(0, 0, 0);
+    margin: 2px 0;
+    transition: 0.3s;
+}
+
+/* --- Mobile Logic --- */
+.mobile-dropdown {
+    position: fixed;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%) translateY(-10px);
+    width: 75%;
+    background: #ffffff;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+
+    /*animation setting*/
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+    z-index: 999;
+}
+
+.mobile-dropdown.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+    
+}
+
+.mobile-dropdown a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    padding: 12px;
     text-align: center;
 }
 
-.nav-link a{
-    font-size: 150%;
-    font-weight: bold;
-}
+@media (max-width: 1000px) {
+    .nav-links { display: none; }
+    .hamburger-btn { display: flex; }
+    /* Shrink the logo image for mobile */
+    .logo-section img {
+        height: 30px; /* Smaller height for mobile */
+    }
 
+    /* Reduce the pill padding so it doesn't hit the screen edges */
+    .header-container {
+        padding: 8px 20px;
+        margin: 0 10px; /* Adds a little space between the pill and screen edge */
+    }
+}
 /*---------------------------------------------------------------------------------------*/
 
 
@@ -226,10 +337,11 @@ a:hover{
 
 /*WELCOME IMAGE*/
 .welcome-image{
-    width: 98%;
+    width: 75%;
     display: block; /*display:block is like putting an image in its own box*/
     margin: auto;
     border-radius: 20px;
+    margin-top: 25px;
 }
 
 /*TEXT UNDER WELCOME IMAGE*/
@@ -395,6 +507,7 @@ a:hover{
     align-items: center;
     width: 99%;
     margin: auto;
+    margin-top: 25px;
 }
 
 .about-us-image{

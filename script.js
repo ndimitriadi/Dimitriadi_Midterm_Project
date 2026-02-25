@@ -1,4 +1,49 @@
 /* =========================================================================
+       LOAD HEADER COMPONENT & HAMBURGER LOGIC
+       ========================================================================= */
+    const headerPlaceholder = document.querySelector('#header-placeholder');
+    
+    if (headerPlaceholder) {
+        fetch('header.html')
+            .then(response => {
+                if (!response.ok) throw new Error("Could not load header");
+                return response.text();
+            })
+            .then(data => {
+                // 1. Inject the HTML into the page
+                headerPlaceholder.innerHTML = data;
+
+                // 2. NOW that the header exists, find the buttons and add the click events!
+                const menuBtn = document.querySelector('.hamburger-btn');
+                const dropdown = document.querySelector('.mobile-dropdown');
+
+                if (menuBtn && dropdown) {
+                    menuBtn.addEventListener('click', () => {
+                        dropdown.classList.toggle('active');
+                        menuBtn.classList.toggle('open');
+                        
+                        // Transform hamburger to X
+                        const spans = menuBtn.querySelectorAll('span');
+                        if (menuBtn.classList.contains('open')) {
+                            spans[0].style.transform = "rotate(45deg) translate(5px, 5px)";
+                            spans[1].style.opacity = "0";
+                            spans[2].style.transform = "rotate(-45deg) translate(4px, -4px)";
+                        } else {
+                            spans[0].style.transform = "none";
+                            spans[1].style.opacity = "1";
+                            spans[2].style.transform = "none";
+                        }
+                    });
+                }
+            })
+            .catch(error => console.error("Error loading header:", error));
+    }
+
+
+
+
+
+/* =========================================================================
        LOAD FOOTER COMPONENT
        ========================================================================= */
     const footerPlaceholder = document.querySelector('#footer-placeholder');
