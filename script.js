@@ -68,6 +68,52 @@
     }
 
 
+
+/*-----DARK MODE -------------------------------------*/
+
+class DarkMode extends HTMLElement {
+  connectedCallback() {
+    // 1. Create the HTML first
+    this.innerHTML = `
+      <button id="theme-toggle">
+        <i id="theme-icon" class="bi bi-moon-fill"></i>
+      </button>
+    `;
+
+    // 2. NOW we can safely grab the elements we just created
+    this.toggleBtn = this.querySelector("#theme-toggle");
+    this.icon = this.querySelector("#theme-icon");
+    this.htmlElement = document.documentElement;
+
+    // 3. Load saved theme
+    const savedTheme = localStorage.getItem("theme") || "light";
+    this.htmlElement.setAttribute("data-theme", savedTheme);
+    this.updateIcon(savedTheme);
+
+    // 4. Add the click listener
+    this.toggleBtn.addEventListener("click", () => {
+      const currentTheme = this.htmlElement.getAttribute("data-theme");
+      const newTheme = currentTheme === "dark" ? "light" : "dark";
+
+      this.htmlElement.setAttribute("data-theme", newTheme);
+      localStorage.setItem("theme", newTheme);
+      this.updateIcon(newTheme);
+    });
+  }
+
+  updateIcon(theme) {
+    this.icon.className = theme === "dark" 
+      ? "bi bi-moon-fill" 
+      : "bi bi-sun-fill";
+  }
+}
+
+// Define the custom element
+customElements.define('dark-mode-toggle', DarkMode);
+
+
+/*-----------------------------------------------------*/
+  
 /*--------------------TESTIMONIALS--------------------------------------------------------*/
 
   /*grabs all testimonials items*/

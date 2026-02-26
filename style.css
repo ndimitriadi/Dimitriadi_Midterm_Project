@@ -1,6 +1,63 @@
-body{
+/* Default (Light Mode) */
+:root {
+  --bg-color: #ffffff;          /* Main page background */
+  --text-color: #111111;        /* Main text */
+  --text-muted: #777777;        /* Subtitles and small text */
+  --surface-color: #ffffff;     /* Header, cards, forms, dropdowns */
+  --border-color: #dddddd;      /* Light borders */
+  --line-color: #000000;        /* Bold divider lines */
+  --nav-link: #000000;          /* Header links */
+
+}
+
+/* Dark Mode */
+[data-theme="dark"] {
+  --bg-color: #000000;          /* Deep dark background */
+  --text-color: #f0f0f0;        /* Soft white text (easier on eyes than pure white) */
+  --text-muted: #dbdbdbfb;        /* Light gray for subtitles */
+  --surface-color: #1e1e1e;     /* Slightly lighter dark gray for floating elements */
+  --border-color: #ffffff;      /* Dark borders */
+  --line-color: #444444;        /* Softer divider lines */
+  --nav-link: #ffffff;          /* White links for the dark header */
+
+}
+
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
     font-family: 'Goergia', 'Perpetua', 'Perpetua Titling MT', 'Times New Roman',serif;
     font-size: 160%;
+}
+
+.cardDM {
+  background-color: var(--cardDM-bg);
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+#theme-toggle {
+/* Positioning */
+  position: fixed;
+  bottom: 1rem;
+  left: 1rem;
+  z-index: 1000;
+
+  /* Look and Feel */
+  background-color: var(--bg-color);
+  color: var(--text-color); /* Ensures the moon/sun icon matches the text color */
+  border: 2px solid var(--border-color); 
+  border-radius: 100%;
+  
+  /* Sizing */
+    padding: 8px 16px;
+    font-size: 20px;
+    cursor: pointer;
+  
+  /* Smooth transitions */
+  box-shadow: 0 4px 15px var(--shadow-color);
+  transition: all 0.3s ease;
 }
 
 a{ 
@@ -31,11 +88,12 @@ a:hover{
     align-items: center; 
     max-width: 1100px;
     margin: 0 auto;
-    background-color: #ffffff; 
+    background-color: var(--bg-color); 
     padding: 12px 30px;
     border-radius: 50px;
     box-shadow: 0 8px 30px rgba(0,0,0,0.2);
 }
+ 
 
 .logo-section img {
     height: 40px; 
@@ -52,7 +110,7 @@ a:hover{
 }
 
 .nav-links a {
-    color: black;
+    color: var(--text-color);
     text-decoration: none;
     font-size: 20px;
     transition: color 0.3s;
@@ -72,7 +130,7 @@ a:hover{
 .pill-divider {
     width: 1px;
     height: 15px;
-    background-color: black;
+    background-color: var(--text-color);
 }
 
 /* --- Hamburger Button --- */
@@ -94,7 +152,7 @@ a:hover{
 .hamburger-btn span {
     width: 20px;
     height: 2px;
-    background-color: rgb(0, 0, 0);
+    background-color: var(--text-color);
     margin: 2px 0;
     transition: 0.3s;
 }
@@ -105,7 +163,7 @@ a:hover{
     left: 50%;
     transform: translateX(-50%) translateY(-10px);
     width: 75%;
-    background: #ffffff;
+    background: var(--bg-color);
     border-radius: 20px;
     display: flex;
     flex-direction: column;
@@ -128,7 +186,7 @@ a:hover{
 }
 
 .mobile-dropdown a {
-    color: rgb(0, 0, 0);
+    color:var(--text-color);
     text-decoration: none;
     padding: 12px;
     text-align: center;
@@ -192,6 +250,10 @@ a:hover{
     font-size: 90%;
 }
 
+[data-theme="dark"] .footer-email {
+    color: var(--text-muted);
+}
+
 .footer-social {
     display: flex;
     gap: 10px;
@@ -207,6 +269,14 @@ a:hover{
     display: inline-block;  
 }
 
+[data-theme="dark"] .footer-social img {
+    filter: brightness(0) invert(86%);
+}
+
+[data-theme="dark"] .footer-social a:hover img {
+    filter: invert(54%) sepia(86%) saturate(421%) hue-rotate(350deg) brightness(95%) contrast(95%);
+}
+
 .footer-social a:hover img {
     filter: invert(54%) sepia(86%) saturate(421%) hue-rotate(350deg) brightness(95%) contrast(95%);
 }
@@ -218,7 +288,7 @@ a:hover{
 }
 
 .footer-links a:hover {
-    color:#000000;
+    color:var(--text-color);
 }
 
 .footer-links {
@@ -226,14 +296,19 @@ a:hover{
 }
 
 .newsletter{
-    background:white;
+    background:var(--bg-color);
     padding:15px;
     border-radius:15px;
+   
     box-shadow:0 10px 25px rgba(0,0,0,0.1);
     text-align: left;
 
     max-width: 210px;
     width: 100%;
+}
+
+[data-theme="dark"] .newsletter {
+     border: 1px solid var(--border-color);
 }
 
 .newsletter form {
@@ -323,8 +398,8 @@ a:hover{
         width: 30%;
         
         /* orange lines */
-        border-top: 1px solid black; 
-        border-bottom: 1px solid black;
+        border-top: 1px solid var(--line-color); 
+        border-bottom: 1px solid var(--line-color);
         
         padding: 30px 0; /*  space between lines and text */
         gap: 15px; /* links  closer together */
@@ -362,7 +437,7 @@ a:hover{
 .line{
     width: 50%;
     height: 0.5px;
-    background-color: #000000;
+    background-color: var(--line-color);
     border: none;
 }
 
@@ -543,8 +618,11 @@ a:hover{
 .team-member{
     padding: 20px;
     border-radius: 15px;
-    /* background-color: #f5f5f5; */
     box-shadow:0 10px 25px rgba(0,0,0,0.1);
+}
+
+[data-theme="dark"] .team-member {
+     border: 1px solid var(--border-color);
 }
 
 .team-avatar{
@@ -557,7 +635,7 @@ a:hover{
 
 .team-role{
     font-weight:lighter;
-    color: #444;
+    color: var(--text-muted);
 }
 
 .team-info{
@@ -607,6 +685,10 @@ a.contact-email {
     text-decoration: none;
 }
 
+[data-theme="dark"] a.contact-email {
+    color: var(--text-muted);
+}
+
 a.contact-email:hover{
     text-decoration: underline;
 }
@@ -618,6 +700,14 @@ a.contact-email:hover{
 .social-media-row-contact a{
     text-decoration: none;
     display: inline-block;  
+}
+
+[data-theme="dark"] .social-media-row-contact img {
+    filter: brightness(0) invert(86%);
+}
+
+[data-theme="dark"] .social-media-row-contact a:hover img {
+    filter: invert(54%) sepia(86%) saturate(421%) hue-rotate(350deg) brightness(95%) contrast(95%);
 }
 
 .social-media-row-contact a:hover img {
@@ -651,11 +741,15 @@ a.contact-email:hover{
 
 /* Form Card */
 .form-card{
-    background:white;
+    background:var(--bg-color);
     padding:30px;
     border-radius:20px;
     box-shadow:0 10px 25px rgba(0,0,0,0.1);
     text-align: left;
+}
+
+[data-theme="dark"] .form-card {
+     border: 1px solid var(--border-color);
 }
 
 .subtitle{
