@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+
+<html lang="en">  
+
+    <head>
+        <title> Favorites</title> 
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Nikoletta Dimitriadi">
+        <link rel="icon" href="./images/tabicon.png">
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+        <link rel="stylesheet" href="./CSS/style.css">
+        <link rel="stylesheet" href="./CSS/tasks.css">
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="./Javascript/script.js" defer></script>
+        <script src="./Javascript/tasks.js" defer></script>
+        
+   </head>
+
+    <body>
+
+        <!-- HEADER -->
+        <div id="header-placeholder"></div>
+
+
+        <h1 class="orange-title" >My Athenian Favorites</h1>
+        <button class="bi bi-plus" id="add_button">Add</button>
+        <button class="bi bi-trash3" id="clear_all_button"> Clear All</button>
+
+        <!-- ADD NEW TASK FORM-->
+        <div id="tasks_form_container" class="hidden">
+            <form id="tasks_form">
+                <label>
+                    Place:
+                    <input type="text" id="place" maxlength="50" required>
+                </label>
+                <br><br>
+
+                <label>
+                    Description:
+                    <input type="text" id="description" maxlength="200" required>
+                </label>
+                <br><br>
+
+                <label>
+                    Due Date:
+                    <input type="date" id="date" required>
+                </label>
+                <br><br>
+
+                <label>
+                    Status:
+                    <select id="status">
+                        <option>To Visit</option>
+                        <option>Visited</option>
+                    </select>
+                </label>
+                <br><br>
+
+                <label>
+                    Priority:
+                    <select id="priority">
+                        <option value="low">Low</option>
+                        <option value="medium">Medium</option>
+                        <option value="high">High</option>
+                    </select>
+                </label>
+                <br><br>
+
+                <button class="newsletter-button"> Submit </button>
+            </form>
+        </div>
+
+        <div class="controls">
+            <label>
+                Filter by:
+                <select id="statusFilter">
+                    <option value="all">All</option>
+                    <option value="Status">Status</option>
+                    <option value="Priority">Priority</option>
+                </select>
+            </label>
+        
+            <label>
+                Sort by:
+                <select id="sortTasks">
+                    <option value="none">None</option>
+                    <option value="date">Date</option>
+                    <option value="place">Place</option>
+                </select>
+            </label>
+        </div>
+
+        <!-- TASKS TABLE -->
+        <table id="task_table">
+            <!-- table headers-->
+            <thead>
+                <tr>
+                    <th><i class="bi bi-pin"></i> Place</th>
+                    <th><i class="bi bi-text-left"></i> Description</th>
+                    <th><i class="bi bi-clock"></i> Due Date</th>
+                    <th><i class="bi bi-hourglass-split"></i> Status</th>
+                    <th><i class="bi bi-patch-exclamation"></i> Priority</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="task_table_body">
+            </tbody>
+        </table>
+
+        <!-- FOOTER-->
+        <div id="footer-placeholder"></div>
+
+        <dark-mode-toggle></dark-mode-toggle>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    </body>
+</html>

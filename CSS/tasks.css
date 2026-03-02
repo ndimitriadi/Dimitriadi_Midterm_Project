@@ -1,0 +1,92 @@
+.hidden {
+    display: none;
+  }
+
+#task_table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #f4f4f4;
+}
+
+#tasks_form_container {
+
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    background: #f9f9f9;
+}
+
+.high {
+    color: red;
+    font-weight: bold;
+}
+
+.medium {
+    color: orange;
+}
+
+.low {
+    color: green;
+}
+
+@media (max-width: 600px) {
+    table, thead, tbody, th, td, tr {
+        display: block; /* stack everything */
+    }
+
+    thead {
+        display: none; /* hide headers */
+    }
+
+    tr {
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        padding: 10px;
+        background-color: #f9f9f9;
+    }
+
+    td {
+        display: flex;
+        justify-content: space-between;
+        padding: 5px 10px;
+        border: none;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        white-space: normal;
+    }
+
+    td:last-child {
+        border-bottom: none;
+    }
+
+    td::before {
+        content: attr(data-label);
+        flex-basis: 40%;
+        font-weight: bold;
+        text-transform: capitalize;
+    }
+
+    td span {
+        flex-basis: 60%;
+        text-align: right;
+    }
+
+    /* Buttons stack vertically */
+    td button {
+        display: inline-block;
+        width: 48%;
+        margin: 3px 1%;
+        box-sizing: border-box;
+    }
+}
