@@ -80,9 +80,9 @@ const cancel_task_button = document.querySelector("#cancel_task_button");
 
 if (cancel_task_button) {
     cancel_task_button.addEventListener("click", () => {
-        tasks_form.reset(); // Clears any text they might have started typing
-        tasks_form_container.classList.remove("show-form"); // Hides the form box
-        edit_index = null; // Resets the edit mode just in case
+        tasks_form.reset(); 
+        tasks_form_container.classList.remove("show-form");
+        edit_index = null; 
     });
 }
 
@@ -241,7 +241,10 @@ function add_task(task, index) {
 
 
 //----------------------- RENDERING THE TABLE ---------------------------------------
-function render_table() { //clears all rows and rebuilts
+function render_table() { 
+
+    update_summary();
+
     task_table_body.innerHTML = ""; 
 
 
@@ -285,7 +288,7 @@ function render_table() { //clears all rows and rebuilts
         display_tasks.sort((a, b) => new Date(a.original_task.date) - new Date(b.original_task.date));
         
     } else if (sort_value === "date-desc") {
-        // Date: Newest first (Swapped a and b)
+        // Date: Newest first (swapped a and b)
         display_tasks.sort((a, b) => new Date(b.original_task.date) - new Date(a.original_task.date));
         
     } else if (sort_value === "place-asc") {
@@ -293,7 +296,7 @@ function render_table() { //clears all rows and rebuilts
         display_tasks.sort((a, b) => a.original_task.place.localeCompare(b.original_task.place));
         
     } else if (sort_value === "place-desc") {
-        // Place: Z to A (Swapped a and b)
+        // Place: Z to A (swapped a and b)
         display_tasks.sort((a, b) => b.original_task.place.localeCompare(a.original_task.place));
     }
 
@@ -306,7 +309,7 @@ function render_table() { //clears all rows and rebuilts
                 </td>
             </tr>
         `;
-        return; // Stop the function here
+        return;
     }
 
 
@@ -357,3 +360,23 @@ const sortTasks = document.querySelector("#sortTasks");
 statusFilter.addEventListener("change", render_table);
 sortTasks.addEventListener("change", render_table);
 
+
+
+// ----------------------- UPDATE SUMMARY---------------------------------------
+function update_summary() {
+    const total_element = document.querySelector("#total_count");
+    const pending_element = document.querySelector("#pending_count");
+    const visited_element = document.querySelector("#visited_count");
+
+    let visited_count = 0;
+    let pending_count = 0;
+
+    tasks.forEach(task => {
+        if (task.status === "Visited") visited_count++;
+        if (task.status === "Pending") pending_count++;
+    });
+
+    total_element.textContent = tasks.length;
+    pending_element.textContent = pending_count;
+    visited_element.textContent = visited_count;
+}

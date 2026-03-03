@@ -61,7 +61,7 @@
     background: transparent;
     color: var(--text-color);
     border: none;
-    border-radius: 30px; /* Gives it that perfect pill shape on hover */
+    border-radius: 30px;
     font-size: 16px;
     font-family: inherit;
     cursor: pointer;
@@ -71,7 +71,6 @@
     padding: 12px 30px;
 }
 
-/* Hover State (Light Mode): Soft light gray background */
 .cancel-btn:hover {
     background-color: #eeeeee; 
     color: #000000;
@@ -79,39 +78,30 @@
 
 
 
-/* Form Styles */
+/* Form */
 #tasks_form_container {
     margin-bottom: 30px;
 }
 
-/* =========================================================
-   SMOOTH FORM REVEAL ANIMATION
-   ========================================================= */
+/* form animation */
 
 #tasks_form_container {
     max-height: 0;
     opacity: 0;
     overflow: hidden;
     visibility: hidden;
-    
-    /* We have to crush the padding and margins to 0 so it doesn't leave an empty box */
     padding-top: 0;
     padding-bottom: 0;
     margin-top: 0;
     margin-bottom: 0;
     border-width: 0;
-    
-    /* This dictates how fast and smooth the animation is (0.4 seconds) */
     transition: all 0.4s ease-in-out;
 }
 
-/* When this class is added via JavaScript, the form slides open! */
 #tasks_form_container.show-form {
-    max-height: 800px; /* Gives the form plenty of room to stretch out */
+    max-height: 800px; 
     opacity: 1;
     visibility: visible;
-    
-    /* Restores your original form-card spacing */
     padding-top: 30px; 
     padding-bottom: 30px;
     margin-bottom: 30px;
@@ -137,8 +127,6 @@
     margin-top: 15px;
 }
 
-
-
 #tasks_form label {
     font-size: 16px;
     color: var(--text-color);
@@ -163,8 +151,6 @@
     padding: 12px 30px;
 }
 
-
-
 /* Filter Controls */
 .controls-card {
     background: var(--surface-color);
@@ -186,7 +172,7 @@
     align-items: center;
     gap: 10px;
     flex: 1; /* Makes the two labels split the row 50/50 */
-    white-space: nowrap; /* Keeps the text from wrapping */
+    white-space: nowrap; /* keps the text from wrapping */
 }
 
 .controls select {
@@ -198,7 +184,7 @@
     color: var(--text-color);
 }
 
-/* Table Styles */
+/* Table */
 .table-container {
     background: var(--surface-color);
     border-radius: 20px;
@@ -216,7 +202,7 @@
 }
 
 #task_table th:nth-child(1) { width: 15%; } /* Place */
-#task_table th:nth-child(2) { width: 25%; } /* Description (needs the most room) */
+#task_table th:nth-child(2) { width: 25%; } /* Description */
 #task_table th:nth-child(3) { width: 15%; } /* Due Date */
 #task_table th:nth-child(4) { width: 15%; } /* Status */
 #task_table th:nth-child(5) { width: 15%; } /* Priority */
@@ -375,14 +361,13 @@
     background-color: #eeeeee;      
 }
 
-/* Hover State (Dark Mode): Subtle light-charcoal background */
 [data-theme="dark"] .cancel-btn,
 [data-theme="dark"] .confirm_cancel_button {
     background-color: rgba(255, 255, 255, 0.1); 
     color: #ffffff;
 }
 
-/* Mobile Responsive Adjustments */
+/* Mobile Responsive */
 @media (max-width: 768px) {
     .input-row,
     .action-bar {
@@ -394,7 +379,6 @@
         width: 100%;
     }
 
-    /* Stack Table for Mobile */
     #task_table, thead, tbody, th, td, tr {
         display: block; 
     }
@@ -422,23 +406,60 @@
         justify-content: center;
     }
 
-  
-
-    /* Stack Filter and Sort vertically on mobile */
     .controls {
         flex-direction: column;
         gap: 15px; 
     }
 
-    /* Force labels to stretch full width on mobile */
     .controls label {
         width: 100%; 
     }
 
-    /* Fix the empty message on mobile */
     #task_table td.empty_table {
         display: block; 
         text-align: center;
         border-bottom: none;
     } 
+
+    .summary-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+/* SUMMARY CARDS*/
+.summary-container {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.summary-card {
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 20px;
+    flex: 1; /* makes all three cards the exact same width */
+    display: flex;
+    gap: 15px;
+}
+
+.summary-card i {
+    font-size: 35px;
+    color:#e37e1c;
+}
+
+.summary-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.summary-number {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+.summary-label {
+    font-size: 14px;
+    color: var(--text-muted);
 }
