@@ -72,6 +72,22 @@ a:hover{
     color: #e37e1c;
 }
 
+.orange-button{
+    width:100%;
+    padding:14px;
+    background:#e37e1c;
+    color:white;
+    border:none;
+    border-radius:30px;
+    font-size:16px;
+    cursor:pointer;
+    font-family: inherit;
+}
+
+.orange-button:hover{
+    background: rgba(235, 149, 63, 0.8);
+}
+
 /* ---------------  HEADER ------------------------------------------------------------- */
 
 #header-placeholder {
@@ -343,7 +359,7 @@ a:hover{
     border-radius:30px;
     font-size:12px;
     cursor:pointer;
-    font-family: 'Georgia', 'Perpetua', 'Perpetua Titling MT', 'Times New Roman',serif;;
+    font-family: inherit;
 
 }
 

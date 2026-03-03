@@ -24,95 +24,130 @@
         <div id="header-placeholder"></div>
 
 
-        <h1 class="orange-title" >My Athenian Favorites</h1>
-        <button class="bi bi-plus" id="add_button">Add</button>
-        <button class="bi bi-trash3" id="clear_all_button"> Clear All</button>
+        <main class="tasks-container">
+            <h1 class="orange-title">My Athenian Favorites</h1>
+            
+            <div class="top-buttons">
+                <button class="orange-button add-btn" id="add_button"><i class="bi bi-plus-lg"></i> Add Place</button>
+                <button class="clear-btn" id="clear_all_button"><i class="bi bi-trash3"></i> Clear All</button>
+            </div>
 
-        <!-- ADD NEW TASK FORM-->
-        <div id="tasks_form_container" class="hidden">
-            <form id="tasks_form">
-                <label>
-                    Place:
-                    <input type="text" id="place" maxlength="50" required>
-                </label>
-                <br><br>
+            <div id="tasks_form_container" class="form-card">
+                <h2>Add a New Favorite</h2>
+                <form id="tasks_form">
+                    <div class="input-row">
+                        <label>
+                            Place:
+                            <input type="text" id="place" maxlength="50" placeholder="e.g., Baba Au Rum" required>
+                        </label>
+                        <label>
+                            Date:
+                            <input type="date" id="date" onclick="this.showPicker()" required>
+                        </label>
+                    </div>
 
-                <label>
-                    Description:
-                    <input type="text" id="description" maxlength="200" required>
-                </label>
-                <br><br>
+                    <label class="description-style spacing">
+                        Description:
+                        <input type="text" id="description" maxlength="200" placeholder="e.g., Try the spicy cocktail" required>
+                    </label>
 
-                <label>
-                    Due Date:
-                    <input type="date" id="date" required>
-                </label>
-                <br><br>
+                    <div class="input-row spacing">
+                        <label>
+                            Status:
+                            <select id="status">
+                                <option>Pending</option>
+                                <option>Visited</option>
+                            </select>
+                        </label>
+                        <label>
+                            Priority:
+                            <select id="priority">
+                                <option value="low">Optional</option>
+                                <option value="medium">Maybe</option>
+                                <option value="high">Must Visit</option>
+                            </select>
+                        </label>
+                    </div>
 
-                <label>
-                    Status:
-                    <select id="status">
-                        <option>To Visit</option>
-                        <option>Visited</option>
-                    </select>
-                </label>
-                <br><br>
+                <div class="form-buttons">
+                    <button type="button" id="cancel_task_button" class="cancel-btn">Cancel</button>                    
+                    <button class="submit orange-button">Submit</button>
+                </div>
+                
+                </form>
+            </div>
 
-                <label>
-                    Priority:
-                    <select id="priority">
-                        <option value="low">Low</option>
-                        <option value="medium">Medium</option>
-                        <option value="high">High</option>
-                    </select>
-                </label>
-                <br><br>
+            <div class="controls-card">
+                <div class="controls">
+                    <label>
+                        <i class="bi bi-funnel"></i> Filter by:
+                        <select id="statusFilter">
+                            <option value="all">All</option>
+                            <option value="Status">Status</option>
+                            <option value="Priority">Priority</option>
+                        </select>
+                    </label>
+                
+                    <label>
+                        <i class="bi bi-sort-down"></i> Sort by:
+                        <select id="sortTasks">
+                            <option value="none">None</option>
+                            <option value="date">Date</option>
+                            <option value="place">Place</option>
+                        </select>
+                    </label>
+                </div>
+            </div>
 
-                <button class="newsletter-button"> Submit </button>
-            </form>
-        </div>
+            <div class="table-container">
+                <table id="task_table">
+                    <thead>
+                        <tr>
+                            <th><i class="bi bi-geo-alt"></i> Place</th>
+                            <th><i class="bi bi-text-left"></i> Description</th>
+                            <th><i class="bi bi-clock"></i> Date</th>
+                            <th><i class="bi bi-hourglass-split"></i> Status</th>
+                            <th><i class="bi bi-patch-exclamation"></i> Priority</th>
+                            <th><i class="bi bi-grid"></i> Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="task_table_body">
+                    </tbody>
+                </table>
+            </div>
+        </main>
 
-        <div class="controls">
-            <label>
-                Filter by:
-                <select id="statusFilter">
-                    <option value="all">All</option>
-                    <option value="Status">Status</option>
-                    <option value="Priority">Priority</option>
-                </select>
-            </label>
-        
-            <label>
-                Sort by:
-                <select id="sortTasks">
-                    <option value="none">None</option>
-                    <option value="date">Date</option>
-                    <option value="place">Place</option>
-                </select>
-            </label>
-        </div>
-
-        <!-- TASKS TABLE -->
-        <table id="task_table">
-            <!-- table headers-->
-            <thead>
-                <tr>
-                    <th><i class="bi bi-pin"></i> Place</th>
-                    <th><i class="bi bi-text-left"></i> Description</th>
-                    <th><i class="bi bi-clock"></i> Due Date</th>
-                    <th><i class="bi bi-hourglass-split"></i> Status</th>
-                    <th><i class="bi bi-patch-exclamation"></i> Priority</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody id="task_table_body">
-            </tbody>
-        </table>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br> <!-- remove when there are more lements in the page  -->
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
 
         <!-- FOOTER-->
         <div id="footer-placeholder"></div>
 
         <dark-mode-toggle></dark-mode-toggle>
+
+        <!-- custom clear all confrimation window-->
+        <div id="confirmation_window" class="custom-confirm">
+            <div class="custom-confirm-content">
+                <i class="bi bi-exclamation-triangle" ></i>
+                <h3 style="margin-top: 10px;">Clear All Favorites?</h3>
+                <p>Are you sure you want to clear all your favorites? This cannot be undone.</p>
+                <div class="custom-confirm-buttons">
+                     <button id="answer_no" class="orange-button confirm_cancel_button" >Cancel</button>
+                    <button id="answer_yes" class="orange-button confirm_delete_button" >Yes, Delete All</button>
+                   
+                </div>
+            </div>
+        </div>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     </body>

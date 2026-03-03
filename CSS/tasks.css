@@ -1,92 +1,399 @@
 .hidden {
     display: none;
-  }
+}
+
+.tasks-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.tasks-container .orange-title{
+    text-align: center;
+}
+
+/* Add and Clear All buttons */
+.top-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.add-btn {
+    width: auto;
+    padding: 12px 30px;
+}
+
+.clear-btn {
+    background: transparent;
+    color: #e74c3c;
+    border: 2px solid #e74c3c;
+    border-radius: 30px;
+    padding: 10px 25px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-family: inherit;
+}
+
+.clear-btn:hover {
+    background: #e74c3c;
+    color: white;
+}
+
+.form-buttons{
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;  
+}
+
+#task_table .cancel_button,
+#task_table .save_button,
+#task_table .edit_button,
+#task_table .delete_button,
+#task_table .complete_button {
+    font-family: inherit;
+    font-size: 15px; 
+}
+
+.cancel-btn {
+    background: transparent;
+    color: var(--text-color);
+    border: none;
+    border-radius: 30px; /* Gives it that perfect pill shape on hover */
+    font-size: 16px;
+    font-family: inherit;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    margin-top: 25px; 
+    width: auto; 
+    padding: 12px 30px;
+}
+
+/* Hover State (Light Mode): Soft light gray background */
+.cancel-btn:hover {
+    background-color: #eeeeee; 
+    color: #000000;
+}
+
+
+
+/* Form Styles */
+#tasks_form_container {
+    margin-bottom: 30px;
+}
+
+/* =========================================================
+   SMOOTH FORM REVEAL ANIMATION
+   ========================================================= */
+
+#tasks_form_container {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    visibility: hidden;
+    
+    /* We have to crush the padding and margins to 0 so it doesn't leave an empty box */
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    border-width: 0;
+    
+    /* This dictates how fast and smooth the animation is (0.4 seconds) */
+    transition: all 0.4s ease-in-out;
+}
+
+/* When this class is added via JavaScript, the form slides open! */
+#tasks_form_container.show-form {
+    max-height: 800px; /* Gives the form plenty of room to stretch out */
+    opacity: 1;
+    visibility: visible;
+    
+    /* Restores your original form-card spacing */
+    padding-top: 30px; 
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+    border-width: 1px;
+}
+
+.input-row {
+    display: flex;
+    gap: 20px;
+}
+
+.input-row label {
+    flex: 1;
+}
+
+.spacing{
+    margin-top: 15px;
+}
+
+.description-style{
+    display: block; 
+    width: 100%; 
+    margin-top: 15px;
+}
+
+
+
+#tasks_form label {
+    font-size: 16px;
+    color: var(--text-color);
+}
+
+#tasks_form input, #tasks_form select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background: var(--bg-color);
+    color: var(--text-color);
+    margin-top: 5px;
+    font-size: 16px;
+    font-family: inherit;
+    box-sizing: border-box;
+}
+
+.submit.orange-button{
+    margin-top: 25px; 
+    width: auto; 
+    padding: 12px 30px;
+}
+
+
+
+/* Filter Controls */
+.controls-card {
+    background: var(--surface-color);
+    padding: 15px 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px var(--shadow-color);
+    margin-bottom: 20px;
+    border: 1px solid var(--border-color);
+}
+
+.controls {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.controls select {
+    margin-left: 8px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    background: var(--bg-color);
+    color: var(--text-color);
+}
+
+/* Table Styles */
+.table-container {
+    background: var(--surface-color);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 10px 25px var(--shadow-color);
+    border: 1px solid var(--border-color);
+    overflow-x: auto;
+}
 
 #task_table {
     width: 100%;
+    table-layout: fixed;
     border-collapse: collapse;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
-th, td {
-    border: 1px solid #ccc;
-    padding: 10px;
+#task_table th:nth-child(1) { width: 15%; } /* Place */
+#task_table th:nth-child(2) { width: 25%; } /* Description (needs the most room) */
+#task_table th:nth-child(3) { width: 15%; } /* Due Date */
+#task_table th:nth-child(4) { width: 15%; } /* Status */
+#task_table th:nth-child(5) { width: 15%; } /* Priority */
+#task_table th:nth-child(6) { width: 30%; } /* Actions */
+
+#task_table th {
     text-align: left;
-}
-
-th {
-    background-color: #f4f4f4;
-}
-
-#tasks_form_container {
-
-    margin-top: 20px;
     padding: 15px;
-    border: 1px solid #ccc;
-    background: #f9f9f9;
+    border-bottom: 2px solid var(--border-color);
+    color: var(--text-muted);
+    font-weight: 600;
 }
 
-.high {
-    color: red;
-    font-weight: bold;
+#task_table td {
+    padding: 15px;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-color);
+    vertical-align: middle;
 }
 
-.medium {
-    color: orange;
+
+/* Alternating row colors */
+#task_table tr:nth-child(even) {
+    background-color: #f3f3f3a8; 
 }
 
-.low {
-    color: green;
+[data-theme="dark"] #task_table tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.137); 
 }
 
-@media (max-width: 600px) {
-    table, thead, tbody, th, td, tr {
-        display: block; /* stack everything */
+#task_table td input[type="text"],
+#task_table td input[type="date"],
+#task_table td select {
+    width: 100%; 
+    min-height: 40px; 
+    padding: 8px 12px; 
+    font-size: 15px; 
+    font-family: inherit; 
+    
+
+    box-sizing: border-box; 
+    
+    
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+
+/* Priority Colors */
+#task_table .high { color: #e74c3c; font-weight: bold; }
+#task_table .medium { color: #f39c12; font-weight: bold; }
+#task_table .low { color: #2ecc71; font-weight: bold; }
+
+/* Action Buttons inside Table */
+#task_table td button {
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: 0.2s;
+    color: var(--text-muted);
+}
+
+#task_table td button:hover {
+    color: #e37e1c;
+    transform: scale(1.1);
+}
+
+/* custom-confirm Overlay */
+.custom-confirm {
+    display: none; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6); 
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(4px); }
+
+/* custom-confirm Box */
+.custom-confirm-content {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    padding: 30px 40px;
+    border-radius: 20px;
+    text-align: center;
+    line-height: 1.4;
+    max-width: 400px;
+    box-shadow: 0 15px 35px var(--shadow-strong);
+    border: 1px solid var(--border-color); 
+}
+
+.custom-confirm-content .bi-exclamation-triangle {
+    font-size: 40px;
+    color: #e74c3c;
+}
+
+.custom-confirm-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.confirm_delete_button{
+    background: #e74c3c; 
+    width: auto;
+}
+
+.confirm_cancel_button{
+    background: transparent; 
+    color: var(--text-color); 
+    width: auto;
+}
+
+.confirm_delete_button:hover{
+    background: #d8311f;      
+}
+
+.confirm_cancel_button:hover {
+    background-color: #eeeeee;      
+}
+
+/* Hover State (Dark Mode): Subtle light-charcoal background */
+[data-theme="dark"] .cancel-btn,
+[data-theme="dark"] .confirm_cancel_button {
+    background-color: rgba(255, 255, 255, 0.1); 
+    color: #ffffff;
+}
+
+/* Mobile Responsive Adjustments */
+@media (max-width: 768px) {
+    .input-row {
+        flex-direction: column;
+        gap: 0;
+    }
+    
+    .action-bar {
+        flex-direction: column;
     }
 
-    thead {
-        display: none; /* hide headers */
+    .add-btn, .clear-btn {
+        width: 100%;
     }
 
-    tr {
-        margin-bottom: 15px;
-        border: 1px solid #ccc;
-        border-radius: 8px;
+    /* Stack Table for Mobile */
+    #task_table, thead, tbody, th, td, tr {
+        display: block; 
+    }
+
+    thead { display: none; }
+
+    #task_table tr {
+        margin-bottom: 20px;
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
         padding: 10px;
-        background-color: #f9f9f9;
+        background-color: var(--surface-color);
     }
 
-    td {
+    #task_table td {
         display: flex;
-        justify-content: space-between;
-        padding: 5px 10px;
-        border: none;
-        border-bottom: 1px solid #eee;
-        position: relative;
-        white-space: normal;
+        justify-content: flex-start;
+        padding: 10px;
+        border-bottom: 1px solid var(--border-color);
+        text-align: left;
     }
 
-    td:last-child {
+    #task_table td:last-child {
         border-bottom: none;
+        justify-content: center;
     }
 
-    td::before {
+    #task_table td::before {
         content: attr(data-label);
-        flex-basis: 40%;
-        font-weight: bold;
+        font-weight: 600;
+        color: var(--text-muted);
         text-transform: capitalize;
-    }
-
-    td span {
-        flex-basis: 60%;
-        text-align: right;
-    }
-
-    /* Buttons stack vertically */
-    td button {
-        display: inline-block;
-        width: 48%;
-        margin: 3px 1%;
-        box-sizing: border-box;
+        float: left;
     }
 }

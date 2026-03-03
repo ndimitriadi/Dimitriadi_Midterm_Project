@@ -10,7 +10,7 @@ let edit_index = null;
 // ----------------------- SHOW/HIDE NEW TASK FORM ---------------------------------------
 
 add_button.addEventListener("click", (e) => {
-    tasks_form_container.classList.toggle("hidden");
+    tasks_form_container.classList.toggle("show-form");
 });
 
 // ----------------------- LOAD TASKS ON PAGE LOAD ---------------------------------------
@@ -60,8 +60,18 @@ tasks_form.addEventListener("submit", (e) => {
     }
 
     tasks_form.reset();
-    tasks_form_container.classList.add("hidden");
+    tasks_form_container.classList.remove("show-form");
 });
+
+const cancel_task_button = document.querySelector("#cancel_task_button");
+
+if (cancel_task_button) {
+    cancel_task_button.addEventListener("click", () => {
+        tasks_form.reset(); // Clears any text they might have started typing
+        tasks_form_container.classList.remove("show-form"); // Hides the form box
+        edit_index = null; // Resets the edit mode just in case
+    });
+}
 
 
 // ----------------------- ADD NEW TASK TO THE TABLE ---------------------------------------
@@ -69,18 +79,30 @@ tasks_form.addEventListener("submit", (e) => {
 function add_task(task, index) {
     const new_row = task_table_body.insertRow();
 
+    let priority_text;
+
+    if (task.priority === "low") {
+        priority_text = "Optional";
+    } else if (task.priority === "medium") {
+        priority_text = "Maybe";
+    } else if (task.priority === "high") {
+        priority_text = "Must Visit";
+    } else {
+        priority_text = task.priority;
+    }
+
     new_row.innerHTML = `
         <td>${task.place}</td>
         <td>${task.description}</td>
         <td>${task.date}</td>
         <td>${task.status}</td>
         <td class="${task.priority}">
-            ${task.priority.charAt(0).toUpperCase() + task.priority.slice(1)}
+            ${priority_text}
         </td>
         <td>
-            <button class="edit_button">✏️ Edit</button>
-            <button class="delete_button">🗑 Delete</button>
-            <button class="complete_button">✅ Visited</button>
+            <button class="edit_button"><i class="bi bi-pencil-square"></i> Edit</button>
+            <button class="delete_button"><i class="bi bi-trash3"></i> Delete</button>
+            <button class="complete_button"><i class="bi bi-check-circle"></i> Visited</button>
         </td>
     `;
 
@@ -107,12 +129,12 @@ function add_task(task, index) {
         //replaces the cells with inputs
         new_row.cells[0].innerHTML = `<input type="text" value="${task.place}">`;
         new_row.cells[1].innerHTML = `<input type="text" value="${task.description}">`;
-        new_row.cells[2].innerHTML = `<input type="date" value="${task.date}">`;
+        new_row.cells[2].innerHTML = `<input type="date" value="${task.date}" onclick="this.showPicker()">`;
         
         //selected option in the status dropdown
-        let option_to_Visit = "";
+        let option_to_visit = "";
         let option_visited = "";
-        if (task.status === "To Visit") {
+        if (task.status === "Pending") {
             option_to_visit = " selected";
         }
         if (task.status === "Visited") {
@@ -121,7 +143,7 @@ function add_task(task, index) {
         //dropdown
         new_row.cells[3].innerHTML = `
             <select>
-                <option${option_to_visit}>To Visit</option>
+                <option${option_to_visit}>Pending</option>
                 <option${option_visited}>Visited</option>
             </select>
         `;
@@ -139,9 +161,9 @@ function add_task(task, index) {
         }
         new_row.cells[4].innerHTML = `
             <select>
-                <option value="low"${option_low}>Low</option>
-                <option value="medium"${option_medium}>Medium</option>
-                <option value="high"${option_high}>High</option>
+                <option value="low"${option_low}>Optional</option>
+                <option value="medium"${option_medium}>Maybe</option>
+                <option value="high"${option_high}>Must Visit</option>
             </select>
         `;
     
@@ -161,8 +183,8 @@ function add_task(task, index) {
     
         //editing new buttons - save and cancel
         new_row.cells[5].innerHTML = `
-            <button class="save_button">💾 Save</button>
-            <button class="cancel_button">❌ Cancel</button>
+            <button class="cancel_button"><i class="bi bi-x-lg"></i> Cancel</button>
+            <button class="save_button"><i class="bi bi-floppy"></i> Save</button>
         `;
         const save_button = new_row.querySelector(".save_button");
         const cancel_button = new_row.querySelector(".cancel_button");
@@ -199,15 +221,41 @@ function save_tasks() {
 }
 
 // -----------------------CLEARING ALL TASKS---------------------------------------
+
+const confirmation_window = document.querySelector("#confirmation_window");
+const answer_yes = document.querySelector("#answer_yes");
+const answer_no = document.querySelector("#answer_no");
+
 clear_all_button.addEventListener("click", () => {
-    // Show confirmation popup
-    const confirmClear = window.confirm("Are you sure you want to clear all favorites? This cannot be undone.");
-    
-    if (confirmClear) {
-        localStorage.removeItem("tasks");
-        tasks = [];
-        task_table_body.innerHTML = "";
-    } else {
-        return;
+    confirmation_window.style.display = "flex"; // show custom-confirm
+});
+
+answer_yes.addEventListener("click", () => {
+    localStorage.removeItem("tasks");
+    tasks = [];
+    task_table_body.innerHTML = "";
+    confirmation_window.style.display = "none"; // hide custom-confirm
+});
+
+answer_no.addEventListener("click", () => {
+    confirmation_window.style.display = "none";
+});
+
+// closes custom-confirm if the user clicks outside the box
+window.addEventListener("click", (e) => {
+    if (e.target === confirmation_window) {
+        confirmation_window.style.display = "none";
     }
 });
+
+
+
+//------------------FILTERING AND SORTING------------
+// Select filter and sort controls
+const statusFilter = document.querySelector("#statusFilter");
+const sortTasks = document.querySelector("#sortTasks");
+
+// Event listeners
+statusFilter.addEventListener("change", renderTable);
+sortTasks.addEventListener("change", renderTable);
+

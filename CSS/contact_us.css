@@ -61,6 +61,7 @@ a.contact-email:hover{
     grid-template-columns:repeat(2,1fr);
     gap:20px;
     margin-top:30px;
+    line-height: 1.4;
 }
 
 /* Form Card */
@@ -94,31 +95,12 @@ a.contact-email:hover{
     border:1px solid #ddd;
     border-radius:8px;
     font-size:15px;
-    font-family: 'Georgia', 'Perpetua', 'Perpetua Titling MT', 'Times New Roman',serif;;
+    font-family: inherit;
 }
 
 .contact-us textarea{
     height:100px;
     resize: vertical;
-}
-
-/* Button */
-
-.contact-button{
-    width:100%;
-    padding:14px;
-    background:#e37e1c;
-    color:white;
-    border:none;
-    border-radius:30px;
-    font-size:16px;
-    cursor:pointer;
-    font-family: 'Georgia', 'Perpetua', 'Perpetua Titling MT', 'Times New Roman',serif;;
-
-}
-
-.contact-button:hover{
-    background: rgba(235, 149, 63, 0.8);
 }
 
 .terms{
@@ -142,6 +124,7 @@ a.contact-email:hover{
 
 .location{
     text-align: left;
+    line-height: 1.4;
 }
 
 .small{
