@@ -13,8 +13,12 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
         <link rel="stylesheet" href="./CSS/style.css">
         <link rel="stylesheet" href="./CSS/index.css">
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
         <script src="./Javascript/script.js" defer></script>
         <script src="./Javascript/index.js" defer></script>
+
+        
    </head>
 
     <body>
@@ -22,12 +26,11 @@
         <!-- HEADER -->
         <div id="header-placeholder"></div>
         
-        <!--WELCOME IMAGE-->
+        <!--WELCOME SECTION-->
         <img src="./images/welcome.jpeg" 
         alt="Top-down view of a fresh vegetable salad in a bowl, surrounded by scattered salad ingredients and the word ‘Welcome’ in large orange letters." 
         class="welcome-image"> 
 
-        <!-- text under welcome image-->
         <div class="welcome-text">
             <h2> Welcome to Athenian Nectar: Savor the Elixir of Athenian Delights</h2>
             <p>Embark on a gastronomic journey through the heart of Athens with Athenian Nectar, your compass to the city’s vibrant food and drink scene. Beyond the iconic Acropolis, our blog is a curated exploration, revealing hidden gems, local favorites, and the diverse flavors that define Athens.</p>
@@ -37,7 +40,8 @@
             <p> <b> Sip, Savor, Celebrate:</b> Athenian Nectar is your invitation to sip, savor, and celebrate the rich tapestry of flavors that define Athens. Whether you’re a seasoned foodie or a curious explorer, our blog invites you to indulge in the joy of discovery and the pleasure of shared culinary moments.</p>
             <p> <b>Join Us in Raising a Glass:</b> As we navigate the labyrinth of tastes that Athens offers, join us in raising a glass to the diverse and ever-evolving culinary landscape. Athenian Nectar is not just a blog; it’s a celebration of the art, culture, and joy found in every bite and sip in this remarkable city.</p>
             <p> Cheers to a gastronomic adventure that goes beyond the expected, guided by Athenian Nectar – where every post is a passport to Athens’ culinary wonders!</p>
-            
+          
+            <!-- call to action button-->
             <div class="call_to_action-container">
                 <a href="tasks.html" class="orange-button">View My Favorites</a>
             </div>
@@ -46,14 +50,34 @@
 
         <hr class="line">
         <br>
-        <!-- LATEST ACTIVITY-->
 
+        <!-- LATEST ACTIVITY-->
         <section class="latest-activity">
             <div class="container">
                 <h2>Latest Activity</h2>
                 <p class="subtitle">See the most recent places added to your list.</p>
-                
                 <div id="recent-tasks-grid" class="recent-grid"></div>
+            </div>
+        </section>
+
+        <br>
+        <hr class="line">
+        <br>
+
+        <!-- DASHBOARD-->
+         <section class="dashboard">
+            <div class="container">
+                <h2>Your Culinary Dashboard</h2>
+                <p class="subtitle">A quick overview of your saved places.</p>
+                
+                <div class="charts-grid">
+                    <div class="chart-card">
+                        <canvas class="status-chart"></canvas>
+                    </div>
+                    <div class="chart-card">
+                        <canvas class="priority-chart"></canvas>
+                    </div>
+                </div>
             </div>
         </section>
 

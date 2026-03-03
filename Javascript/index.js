@@ -158,9 +158,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (saved_tasks.length === 0) {
             recent_tasks_grid.innerHTML = `
-                <p class="empty_table">
-                    No places added yet. Head to your favorites to get started!
-                </p>
+              <div class="empty_table_index">
+                  <i class="bi bi-bookmark-star"></i>
+                  <p>No places added yet.  Head to your favorites to get started!</p>
+              </div>    
             `;
             return;
         }
@@ -191,5 +192,82 @@ document.addEventListener("DOMContentLoaded", () => {
 
             recent_tasks_grid.appendChild(card);
         });
-    }
+    }    
+});
+
+
+/*-------------------------DASHBOARD-------------------*/    
+  document.addEventListener("DOMContentLoaded", () => {
+    const saved_tasks_d = JSON.parse(localStorage.getItem("tasks")) || [];
+    const status_chart = document.querySelector(".status-chart");
+    const priority_chart = document.querySelector(".priority-chart");
+    const charts_grid = document.querySelector(".charts-grid");
+
+        if (saved_tasks_d.length === 0) {
+            if (charts_grid) {
+                charts_grid.style.display = "block";
+                charts_grid.innerHTML = `
+                    <div class="empty_table_index">
+                        <i class="bi bi-pie-chart"></i>
+                        <p>No data to display yet.  Add some places to your favorites to see your culinary stats!</p>
+                    </div>
+                `;
+            }
+        } else {
+
+          //counting
+            let pending = 0, visited = 0;
+            let high = 0, medium = 0, low = 0;
+
+            saved_tasks_d.forEach(task => {
+                if (task.status === "Pending") pending++;
+                if (task.status === "Visited") visited++;
+
+                const priority = task.priority;
+                if (priority === "high") high++;
+                if (priority === "medium") medium++;
+                if (priority === "low") low++;
+            });
+
+            //status chart
+            new Chart(status_chart, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Pending', 'Visited'],
+                    datasets: [{
+                        data: [pending, visited],
+                        backgroundColor: ['#f39c12', '#2ecc71'],
+                        borderWidth: 0 
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: { position: 'bottom', labels: { color: '#888' } },
+                        title: { display: true, text: 'Visit Status', color: '#888' }
+                    }
+                }
+            });
+
+            // priority chart
+            new Chart(priority_chart, {
+                type: 'pie',
+                data: {
+                  labels: ['High', 'Medium', 'Low'],
+                  datasets: [{
+                      label: 'Places',
+                      data: [high, medium, low],
+                      backgroundColor: ['#e74c3c', '#f39c12', '#2ecc71'], 
+                      borderWidth: 0 
+                  }]
+                },
+                options: {
+                  responsive: true,
+                  plugins: {
+                      legend: { position: 'bottom', labels: { color: '#888' }}, 
+                      title: { display: true, text: 'Places by Priority', color: '#888' }
+                  }
+                }
+            });
+        }
 });
