@@ -13,7 +13,24 @@
     line-height: 1.6;
 }
 
+/*----call to action---*/
+.call_to_action-container {
+    text-align: center;   /* centers the button */
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
 
+.call_to_action-container .orange-button{
+    adding: 15px 35px;   /* makes the button bigger */
+    font-size: 18px;  
+}
+
+.call_to_action-container a.orange-button {
+    text-decoration: none;
+}
+
+
+/*---mobile responsiveness----*/
 @media (max-width: 900px) {
     
     .welcome-container {
@@ -97,6 +114,7 @@
             
             border: 1px solid #d4d4d4;
             border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
 
             display: grid;
             grid-template-rows: auto 1fr auto;
