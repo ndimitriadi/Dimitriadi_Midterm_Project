@@ -83,8 +83,17 @@
                         <i class="bi bi-funnel"></i> Filter by:
                         <select id="statusFilter">
                             <option value="all">All</option>
-                            <option value="Status">Status</option>
-                            <option value="Priority">Priority</option>
+                            
+                            <optgroup label="Status">
+                                <option value="Pending">Pending</option>
+                                <option value="Visited">Visited</option>
+                            </optgroup>
+                            
+                            <optgroup label="Priority">
+                                <option value="high">Must Visit</option>
+                                <option value="medium">Maybe</option>
+                                <option value="low">Optional</option>
+                            </optgroup>
                         </select>
                     </label>
                 
@@ -92,8 +101,14 @@
                         <i class="bi bi-sort-down"></i> Sort by:
                         <select id="sortTasks">
                             <option value="none">None</option>
-                            <option value="date">Date</option>
-                            <option value="place">Place</option>
+                            <optgroup label="Date">
+                                <option value="date-asc">Oldest to Newest</option>
+                                <option value="date-desc">Newest to Oldest</option>
+                            </optgroup>
+                            <optgroup label="Place">
+                                <option value="place-asc">Place (A to Z)</option>
+                                <option value="place-desc">Place (Z to A)</option>
+                            </optgroup>
                         </select>
                     </label>
                 </div>

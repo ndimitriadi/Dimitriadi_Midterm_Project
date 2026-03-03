@@ -20,8 +20,21 @@ document.addEventListener("DOMContentLoaded", () => { //waits for the HTML to be
 
     if (storedTasks) {
         tasks = JSON.parse(storedTasks); //converts data string to JavaScript array
-        tasks.forEach((task, index) => add_task(task, index)); //rebuilds table
     }
+
+    const savedFilter = localStorage.getItem("saved_filter");
+    const savedSort = localStorage.getItem("saved_sort");
+
+    if (savedFilter) {
+        document.querySelector("#statusFilter").value = savedFilter;
+    }
+    if (savedSort) {
+        document.querySelector("#sortTasks").value = savedSort;
+    }
+
+
+    render_table();
+    
 });
 
 // ----------------------- DATES MIN-MAX ------------------------------------------------
@@ -56,7 +69,7 @@ tasks_form.addEventListener("submit", (e) => {
     } else { //adding
         tasks.push(task); //adds new task to the array
         save_tasks(); //saves to localStorage
-        add_task(task, tasks.length - 1); //adds only the new row
+        render_table(); //adds only the new row
     }
 
     tasks_form.reset();
@@ -112,9 +125,27 @@ function add_task(task, index) {
 
     //delete button
     delete_button.addEventListener("click", () => {
-        tasks.splice(index, 1); //removes the task from the array
-        save_tasks();
-        render_table();
+       
+        //new confirmation buttons
+        new_row.cells[5].innerHTML = `
+            <button class="cancel_row_delete"> <i class="bi bi-x-circle"></i> No</button>
+            <button class="confirm_row_delete"> <i class="bi bi-trash3-fill"></i> Yes</button>
+        `;
+
+        const confirm_row_delete = new_row.querySelector(".confirm_row_delete");
+        const cancel_row_delete = new_row.querySelector(".cancel_row_delete");
+
+        //yes
+        confirm_row_delete.addEventListener("click", () => {
+            tasks.splice(index, 1); 
+            save_tasks();
+            render_table();
+        });
+
+        //no
+        cancel_row_delete.addEventListener("click", () => {
+            render_table();
+        });
     });
 
     //complete button
@@ -127,10 +158,10 @@ function add_task(task, index) {
     //edit button
     edit_button.addEventListener("click", () => {
         //replaces the cells with inputs
-        new_row.cells[0].innerHTML = `<input type="text" value="${task.place}">`;
-        new_row.cells[1].innerHTML = `<input type="text" value="${task.description}">`;
+        new_row.cells[0].innerHTML = `<textarea rows="3">${task.place}</textarea>`;
+        new_row.cells[1].innerHTML = `<textarea rows="3">${task.description}</textarea>`;
         new_row.cells[2].innerHTML = `<input type="date" value="${task.date}" onclick="this.showPicker()">`;
-        
+    
         //selected option in the status dropdown
         let option_to_visit = "";
         let option_visited = "";
@@ -176,8 +207,8 @@ function add_task(task, index) {
         date_input.max = max_date;
 
         //Place and Description character limit
-        const place_input = new_row.cells[0].querySelector("input");
-        const description_input = new_row.cells[1].querySelector("input");
+        const place_input = new_row.cells[0].querySelector("textarea");
+        const description_input = new_row.cells[1].querySelector("textarea");
         place_input.maxLength = 50;
         description_input.maxLength = 200;
     
@@ -191,8 +222,8 @@ function add_task(task, index) {
     
         save_button.addEventListener("click", () => {
             const updated_task = {
-                place: new_row.cells[0].querySelector("input").value,
-                description: new_row.cells[1].querySelector("input").value,
+                place: new_row.cells[0].querySelector("textarea").value,
+                description: new_row.cells[1].querySelector("textarea").value,
                 date: new_row.cells[2].querySelector("input").value,
                 status: new_row.cells[3].querySelector("select").value,
                 priority: new_row.cells[4].querySelector("select").value
@@ -212,7 +243,74 @@ function add_task(task, index) {
 //----------------------- RENDERING THE TABLE ---------------------------------------
 function render_table() { //clears all rows and rebuilts
     task_table_body.innerHTML = ""; 
-    tasks.forEach((task, index) => add_task(task, index));
+
+
+    //empty table message
+    if (tasks.length === 0) {
+        task_table_body.innerHTML = `
+            <tr>
+                <td colspan="6" class="empty_table">
+                    <i class="bi bi-inbox"></i>
+                    No favorites added yet. Click <strong>"Add Place"</strong> to get started!
+                </td>
+            </tr>
+        `;
+        return; 
+    }
+
+    //saving preferences to localStorage
+    localStorage.setItem("saved_filter", statusFilter.value);
+    localStorage.setItem("saved_sort", sortTasks.value);
+
+
+    //mapping original index to tasks so edit and delete buttons function correctly
+    let display_tasks = tasks.map((task, index) => {
+        return { original_task: task, original_index: index };
+    });
+
+    //filtering
+    const filter_value = statusFilter.value;
+    if (filter_value !== "all") {
+        display_tasks = display_tasks.filter(item => 
+            item.original_task.status === filter_value || 
+            item.original_task.priority === filter_value
+        );
+    }
+
+    //sorting
+    const sort_value = sortTasks.value;
+    
+    if (sort_value === "date-asc") {
+        // Date: Oldest first
+        display_tasks.sort((a, b) => new Date(a.original_task.date) - new Date(b.original_task.date));
+        
+    } else if (sort_value === "date-desc") {
+        // Date: Newest first (Swapped a and b)
+        display_tasks.sort((a, b) => new Date(b.original_task.date) - new Date(a.original_task.date));
+        
+    } else if (sort_value === "place-asc") {
+        // Place: A to Z
+        display_tasks.sort((a, b) => a.original_task.place.localeCompare(b.original_task.place));
+        
+    } else if (sort_value === "place-desc") {
+        // Place: Z to A (Swapped a and b)
+        display_tasks.sort((a, b) => b.original_task.place.localeCompare(a.original_task.place));
+    }
+
+    //no match
+    if (display_tasks.length === 0 && tasks.length > 0) {
+        task_table_body.innerHTML = `
+            <tr>
+                <td colspan="6" class="empty_table">
+                    No tasks match your filter.
+                </td>
+            </tr>
+        `;
+        return; // Stop the function here
+    }
+
+
+    display_tasks.forEach(item => add_task(item.original_task, item.original_index));
 }
 
 // -----------------------SAVING TO localStorage ---------------------------------------
@@ -233,7 +331,7 @@ clear_all_button.addEventListener("click", () => {
 answer_yes.addEventListener("click", () => {
     localStorage.removeItem("tasks");
     tasks = [];
-    task_table_body.innerHTML = "";
+    render_table();
     confirmation_window.style.display = "none"; // hide custom-confirm
 });
 
@@ -256,6 +354,6 @@ const statusFilter = document.querySelector("#statusFilter");
 const sortTasks = document.querySelector("#sortTasks");
 
 // Event listeners
-statusFilter.addEventListener("change", renderTable);
-sortTasks.addEventListener("change", renderTable);
+statusFilter.addEventListener("change", render_table);
+sortTasks.addEventListener("change", render_table);
 

@@ -177,9 +177,16 @@
 
 .controls {
     display: flex;
-    gap: 25px;
-    flex-wrap: wrap;
+    gap: 20px;
     align-items: center;
+}
+
+.controls label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1; /* Makes the two labels split the row 50/50 */
+    white-space: nowrap; /* Keeps the text from wrapping */
 }
 
 .controls select {
@@ -230,6 +237,10 @@
     vertical-align: middle;
 }
 
+#task_table td textarea {
+    resize: vertical;
+}
+
 
 /* Alternating row colors */
 #task_table tr:nth-child(even) {
@@ -242,21 +253,33 @@
 
 #task_table td input[type="text"],
 #task_table td input[type="date"],
-#task_table td select {
+#task_table td select,
+#task_table td textarea {
     width: 100%; 
     min-height: 40px; 
     padding: 8px 12px; 
     font-size: 15px; 
     font-family: inherit; 
-    
-
     box-sizing: border-box; 
-    
-    
     border: 1px solid var(--border-color);
     border-radius: 6px;
     background-color: var(--bg-color);
     color: var(--text-color);
+}
+
+#sortTasks,
+#statusFilter{
+    width: 100%; 
+    min-height: 40px; 
+    padding: 8px 12px; 
+    font-size: 15px; 
+    font-family: inherit; 
+    box-sizing: border-box; 
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    flex:1;
 }
 
 
@@ -279,6 +302,19 @@
 #task_table td button:hover {
     color: #e37e1c;
     transform: scale(1.1);
+}
+
+#task_table_body .empty_table{
+    text-align: center; 
+    padding: 40px; 
+    color: var(--text-muted); 
+    font-style: italic;
+}
+.bi-inbox{
+    font-size: 40px; 
+    display: block; 
+    margin-bottom: 10px; 
+    color: #ccc;
 }
 
 /* custom-confirm Overlay */
@@ -348,13 +384,10 @@
 
 /* Mobile Responsive Adjustments */
 @media (max-width: 768px) {
-    .input-row {
-        flex-direction: column;
-        gap: 0;
-    }
-    
+    .input-row,
     .action-bar {
         flex-direction: column;
+        gap: 0;
     }
 
     .add-btn, .clear-btn {
@@ -389,11 +422,23 @@
         justify-content: center;
     }
 
-    #task_table td::before {
-        content: attr(data-label);
-        font-weight: 600;
-        color: var(--text-muted);
-        text-transform: capitalize;
-        float: left;
+  
+
+    /* Stack Filter and Sort vertically on mobile */
+    .controls {
+        flex-direction: column;
+        gap: 15px; 
     }
+
+    /* Force labels to stretch full width on mobile */
+    .controls label {
+        width: 100%; 
+    }
+
+    /* Fix the empty message on mobile */
+    #task_table td.empty_table {
+        display: block; 
+        text-align: center;
+        border-bottom: none;
+    } 
 }
