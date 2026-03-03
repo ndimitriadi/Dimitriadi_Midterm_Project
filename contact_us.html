@@ -12,7 +12,9 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
         <link rel="stylesheet" href="./CSS/style.css">
         <link rel="stylesheet" href="./CSS/contact_us.css">
+
         <script src="./Javascript/script.js" defer></script>
+        <script src="./Javascript/contact_us.js" defer></script>
 
     </head>
 
@@ -70,12 +72,12 @@
 
                         <form id="contactForm">
                             <div class="row">
-                                <input placeholder="First name" type="text" name="name" maxlength="25" required>
-                                <input placeholder="Last name" type="text" name="name" maxlength="25" required>
+                                <input placeholder="First name" type="text" name="first_name" maxlength="25" required>
+                                <input placeholder="Last name" type="text" name="last_name" maxlength="25" required>
                             </div>
 
-                            <input class="row" placeholder="Your email" type="email" name="email" maxlength="25" required>
-                            <input class="row" placeholder="Subject" type="text" name="name" maxlength="25" required>
+                            <input class="row" placeholder="Your email" type="email" name="email" maxlength="40" required>
+                            <input class="row" placeholder="Subject" type="text" name="subject" maxlength="25" required>
 
                             <textarea class="row" placeholder="How can we help?" name="message" rows="7" maxlength="1000" required></textarea>
 
@@ -124,6 +126,19 @@
        <div id="footer-placeholder"></div>
 
        <dark-mode-toggle></dark-mode-toggle>
+
+        <div id="contact_window" class="custom-confirm">
+        <div class="custom-confirm-content">
+            <i class="bi bi-check-circle"></i>
+            <h2>Message Sent!</h2>
+            <p>Thank you for reaching out. Here are the details we received:</p>
+            
+            <div id="contact_details"></div>
+
+            <button id="close_window" class="orange-button">Close</button>
+            </div>
+        </div>
+       
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     </body>
