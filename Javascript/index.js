@@ -145,3 +145,51 @@
   startAutoplay();
 
 /*-----------------------------------------------------------------------------------------*/
+
+
+
+/*------------------LATEST ACTIVITY---------------------*/
+document.addEventListener("DOMContentLoaded", () => {
+    const recent_tasks_grid = document.querySelector("#recent-tasks-grid");
+    const saved_tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+
+    if (recent_tasks_grid) {
+        recent_tasks_grid.innerHTML = "";
+
+        if (saved_tasks.length === 0) {
+            recent_tasks_grid.innerHTML = `
+                <p class="empty_table">
+                    No places added yet. Head to your favorites to get started!
+                </p>
+            `;
+            return;
+        }
+
+        function format_priority(priority) {
+            if (priority === "low") return "Optional";
+            if (priority === "medium") return "Maybe";
+            if (priority === "high") return "Must Visit";
+            return priority;
+        }
+
+        const latest_tasks = saved_tasks.slice(-3).reverse();
+
+        latest_tasks.forEach(task => {
+            const card = document.createElement("div");
+            card.classList.add("recent-task-card");
+
+            card.innerHTML = `
+                <i class="bi bi-geo-alt"></i> ${task.place}
+                <p><strong>Priority:</strong> 
+                    <span>${format_priority(task.priority)}</span>
+                </p>
+                <p><strong>Date:</strong> ${task.date}</p>
+                <span class="status-badge status-${task.status}">
+                    ${task.status}
+                </span>
+            `;
+
+            recent_tasks_grid.appendChild(card);
+        });
+    }
+});

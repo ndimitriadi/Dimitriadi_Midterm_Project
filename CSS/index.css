@@ -15,19 +15,84 @@
 
 /*----call to action---*/
 .call_to_action-container {
-    text-align: center;   /* centers the button */
-    margin-top: 40px;
-    margin-bottom: 40px;
+    text-align: center; 
+    margin-top: 60px;
+    margin-bottom: 60px;
 }
 
 .call_to_action-container .orange-button{
-    adding: 15px 35px;   /* makes the button bigger */
+    padding: 15px 35px;  
     font-size: 18px;  
 }
 
 .call_to_action-container a.orange-button {
     text-decoration: none;
 }
+
+
+/*---LATEST ACTIVITY---*/
+
+.latest-activity{
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.recent-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.recent-task-card {
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.recent-task-card p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.status-Visited { background: #e8f8f5; color: #2ecc71; }
+.status-Pending { background: #fef5e7; color: #f39c12; }
+
+[data-theme="dark"] .status-Visited {
+    background-color: transparent;
+    border: 1px solid #2ecc71;
+}
+
+[data-theme="dark"] .status-Pending {
+    background-color: transparent;
+    border: 1px solid #f39c12;
+}
+
+recent_tasks_grid p{
+    color: var(--text-muted); 
+    font-style: italic;
+}
+
+.bi-geo-alt{
+    color: #e37e1c;
+    font-size: 18px;
+}
+
+span{
+    text-transform: capitalize;
+}
+
 
 
 /*---mobile responsiveness----*/

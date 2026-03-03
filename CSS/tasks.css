@@ -290,17 +290,15 @@
     transform: scale(1.1);
 }
 
-#task_table_body .empty_table{
-    text-align: center; 
-    padding: 40px; 
-    color: var(--text-muted); 
-    font-style: italic;
-}
 .bi-inbox{
     font-size: 40px; 
     display: block; 
     margin-bottom: 10px; 
     color: #ccc;
+}
+
+#task_table td.empty_table {
+    color: var(--text-muted);
 }
 
 /* Mobile Responsive */
@@ -351,11 +349,7 @@
         width: 100%; 
     }
 
-    #task_table td.empty_table {
-        display: block; 
-        text-align: center;
-        border-bottom: none;
-    } 
+   
 
     .summary-container {
         flex-direction: column;
