@@ -1,0 +1,33 @@
+.discover-container .orange-title{
+    text-align: center;
+}
+
+.discover-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.weather-container{
+    display: flex; 
+    justify-content: center; 
+    margin-bottom: 30px;
+}
+
+#weather-description{
+    margin: 5px 0;
+    color: var(--text-muted); 
+    text-transform: capitalize; 
+    font-size: 14px;
+}
+
+#weather-temperature{
+    margin: 0;
+    color: #e37e1c; 
+    font-size: 28px;
+}
+
+#weather-icon{
+    font-size: 35px; 
+    color: #e37e1c;
+}
