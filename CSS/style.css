@@ -88,14 +88,6 @@ a:hover{
     background: rgba(235, 149, 63, 0.8);
 }
 
-.empty_table{
-    text-align: center; 
-    padding: 40px; 
-    color: var(--text-muted); 
-    font-style: italic;
-}
-
-
 /* custom-confirm Overlay */
 .custom-confirm {
     display: none; 

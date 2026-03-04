@@ -285,9 +285,22 @@
     color: var(--text-muted);
 }
 
+#task_table td.empty_table {
+    color: var(--text-muted);
+    text-align: center;
+    border-bottom: none;
+}
+
 #task_table td button:hover {
     color: #e37e1c;
     transform: scale(1.1);
+}
+
+#task_table_body .empty_table{
+    text-align: center; 
+    padding: 40px; 
+    color: var(--text-muted); 
+    font-style: italic;
 }
 
 .bi-inbox{
@@ -338,6 +351,10 @@
     #task_table td:last-child {
         border-bottom: none;
         justify-content: center;
+    }
+
+    #task_table td.empty_table {
+    display: block;
     }
 
     .controls {
