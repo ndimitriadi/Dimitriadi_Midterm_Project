@@ -84,7 +84,6 @@
 }
 
 /* form animation */
-
 #tasks_form_container {
     max-height: 0;
     opacity: 0;
@@ -266,9 +265,20 @@
 
 
 /* Priority Colors */
-#task_table .high { color: #e74c3c; font-weight: bold; }
-#task_table .medium { color: #f39c12; font-weight: bold; }
-#task_table .low { color: #2ecc71; font-weight: bold; }
+#task_table .high { 
+    color: #e74c3c; 
+    font-weight: bold; 
+}
+
+#task_table .medium { 
+    color: #f39c12; 
+    font-weight: bold; 
+}
+
+#task_table .low { 
+    color: #2ecc71; 
+    font-weight: bold; 
+}
 
 /* Action Buttons inside Table */
 #task_table td button {
@@ -333,7 +343,6 @@
         border: 1px solid var(--border-color);
         border-radius: 12px;
         padding: 10px;
-        background-color: var(--surface-color);
     }
 
     #task_table td {
@@ -361,8 +370,6 @@
     .controls label {
         width: 100%; 
     }
-
-   
 
     .summary-container {
         flex-direction: column;
@@ -415,7 +422,6 @@
     border: none;
 }
 
-/* 2. All Inputs, Selects, and Textareas */
 [data-theme="dark"] #tasks_form input,
 [data-theme="dark"] #tasks_form select,
 [data-theme="dark"] .controls select,

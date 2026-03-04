@@ -71,8 +71,15 @@
     margin-top: 10px;
 }
 
-.status-Visited { background: #e8f8f5; color: #2ecc71; }
-.status-Pending { background: #fef5e7; color: #f39c12; }
+.status-Visited { 
+    background: #e8f8f5; 
+    color: #2ecc71; 
+}
+
+.status-Pending { 
+    background: #fef5e7; 
+    color: #f39c12; 
+}
 
 [data-theme="dark"] .status-Visited {
     background-color: transparent;
@@ -281,7 +288,6 @@ span{
             transition: background 0.3s;
         }
 
-        
 
         .dot.active {
             background: #333;

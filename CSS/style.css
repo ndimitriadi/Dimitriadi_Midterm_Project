@@ -102,7 +102,7 @@ a:hover{
     background: rgba(235, 149, 63, 0.8);
 }
 
-/* custom-confirm Overlay */
+/* custom-confirm overlay */
 .custom-confirm {
     display: none; 
     position: fixed;
@@ -117,7 +117,7 @@ a:hover{
     backdrop-filter: blur(4px); }
 
 
-/* custom-confirm Box */
+/* custom-confirm box */
 .custom-confirm-content {
     background-color: var(--bg-color);
     color: var(--text-color);
@@ -273,7 +273,7 @@ a:hover{
 }
 
 /* --- Hamburger Button --- */
-.hamburger-btn {
+.hamburger-button {
     display: none;
     flex-direction: column;
     justify-content: center; 
@@ -288,7 +288,7 @@ a:hover{
     
 }
 
-.hamburger-btn span {
+.hamburger-button span {
     width: 20px;
     height: 2px;
     background-color: var(--text-color);
@@ -333,7 +333,7 @@ a:hover{
 
 @media (max-width: 1000px) {
     .nav-links { display: none; }
-    .hamburger-btn { display: flex; }
+    .hamburger-button { display: flex; }
     
     /* smaller logo on mobile */
     .logo-section img {

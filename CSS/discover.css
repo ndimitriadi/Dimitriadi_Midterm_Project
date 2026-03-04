@@ -85,7 +85,7 @@
 }
 
 .blog-card {
-    border: 1px solid var(--border-color, #dddddd);
+    border: 1px solid var(--border-color);
     border-radius: 16px;
     overflow: hidden; 
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
@@ -164,7 +164,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-top: 1px solid var(--border-color, #eee);
+    border-top: 1px solid var(--border-color);
     padding-top: 15px;
     font-size: 13px;
     color: var(--text-muted);
