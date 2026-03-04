@@ -2,7 +2,7 @@
 :root {
   --bg-color: #ffffff;          /* background */
   --text-color: #111111;        /* text */
-  --text-muted: #777777;        /* subtitles and small text */
+  --text-muted: #555555;        /* subtitles and small text */
   --border-color: #dddddd;      /* Light borders */
   --line-color: #000000;        /* line */
 }
@@ -531,6 +531,8 @@ a:hover{
         transform: translateX(-50%); /* Centers them */
         width: 100%;
         text-align: center;
+        display: inline-block;
+        padding: 12px 5px;
     }
 
     .footer-social{
@@ -552,4 +554,6 @@ a:hover{
     .newsletter input[type="email"] {
     width: 100%;}
 }
+
+
 /*--------------------------------------------------------------------------------------*/

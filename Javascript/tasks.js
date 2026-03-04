@@ -113,9 +113,9 @@ function add_task(task, index) {
             ${priority_text}
         </td>
         <td>
-            <button class="edit_button"><i class="bi bi-pencil-square"></i> Edit</button>
-            <button class="delete_button"><i class="bi bi-trash3"></i> Delete</button>
-            <button class="complete_button"><i class="bi bi-check-circle"></i> Visited</button>
+            <button class="edit_button" ><i class="bi bi-pencil-square" aria-hidden="true"></i> Edit</button>
+            <button class="delete_button"><i class="bi bi-trash3" aria-hidden="true"></i> Delete</button>
+            <button class="complete_button" ><i class="bi bi-check-circle" aria-hidden="true"></i> Visited</button>
         </td>
     `;
 
@@ -128,8 +128,8 @@ function add_task(task, index) {
        
         //new confirmation buttons
         new_row.cells[5].innerHTML = `
-            <button class="cancel_row_delete"> <i class="bi bi-x-circle"></i> No</button>
-            <button class="confirm_row_delete"> <i class="bi bi-trash3-fill"></i> Yes</button>
+            <button class="cancel_row_delete"> <i class="bi bi-x-circle" aria-hidden="true"></i> No</button>
+            <button class="confirm_row_delete"> <i class="bi bi-trash3-fill" aria-hidden="true"></i> Yes</button>
         `;
 
         const confirm_row_delete = new_row.querySelector(".confirm_row_delete");
@@ -158,9 +158,9 @@ function add_task(task, index) {
     //edit button
     edit_button.addEventListener("click", () => {
         //replaces the cells with inputs
-        new_row.cells[0].innerHTML = `<textarea rows="3">${task.place}</textarea>`;
-        new_row.cells[1].innerHTML = `<textarea rows="3">${task.description}</textarea>`;
-        new_row.cells[2].innerHTML = `<input type="date" value="${task.date}" onclick="this.showPicker()">`;
+        new_row.cells[0].innerHTML = `<textarea rows="3" aria-label="Edit Place Name">${task.place}</textarea>`;
+        new_row.cells[1].innerHTML = `<textarea rows="3" aria-label="Edit Description">${task.description}</textarea>`;
+        new_row.cells[2].innerHTML = `<input type="date" value="${task.date}" aria-label="Edit Date" onclick="this.showPicker()">`;
     
         //selected option in the status dropdown
         let option_to_visit = "";
@@ -173,7 +173,7 @@ function add_task(task, index) {
         }
         //dropdown
         new_row.cells[3].innerHTML = `
-            <select>
+            <select aria-label="Edit Status">
                 <option${option_to_visit}>Pending</option>
                 <option${option_visited}>Visited</option>
             </select>
@@ -191,7 +191,7 @@ function add_task(task, index) {
             option_high = " selected";
         }
         new_row.cells[4].innerHTML = `
-            <select>
+            <select aria-label="Edit Priority">
                 <option value="low"${option_low}>Optional</option>
                 <option value="medium"${option_medium}>Maybe</option>
                 <option value="high"${option_high}>Must Visit</option>
@@ -214,8 +214,8 @@ function add_task(task, index) {
     
         //editing new buttons - save and cancel
         new_row.cells[5].innerHTML = `
-            <button class="cancel_button"><i class="bi bi-x-lg"></i> Cancel</button>
-            <button class="save_button"><i class="bi bi-floppy"></i> Save</button>
+            <button class="cancel_button" aria-label="Cancel editing"><i class="bi bi-x-lg" aria-hidden="true"></i> Cancel</button>
+            <button class="save_button" aria-label="Save changes"><i class="bi bi-floppy" aria-hidden="true"></i> Save</button>
         `;
         const save_button = new_row.querySelector(".save_button");
         const cancel_button = new_row.querySelector(".cancel_button");
@@ -253,7 +253,7 @@ function render_table() {
         task_table_body.innerHTML = `
             <tr>
                 <td colspan="6" class="empty_table">
-                    <i class="bi bi-inbox"></i>
+                    <i class="bi bi-inbox" aria-hidden="true"></i>
                     No favorites added yet. Click <strong>"Add Place"</strong> to get started!
                 </td>
             </tr>

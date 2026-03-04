@@ -71,8 +71,8 @@ class DarkMode extends HTMLElement {
   connectedCallback() {
 
     this.innerHTML = `
-      <button id="theme-toggle">
-        <i id="theme-icon" class="bi bi-moon-fill"></i>
+      <button id="theme-toggle" aria-label="Toggle dark mode">
+        <i id="theme-icon" class="bi bi-moon-fill" aria-hidden="true"></i>
       </button>
     `;
 
@@ -112,20 +112,21 @@ customElements.define('dark-mode-toggle', DarkMode);
 /*--------------- BACK TO TOP BUTTON-----------------------------*/
 document.addEventListener('DOMContentLoaded', () => {
     const back_to_top = document.querySelector('#back-to-top');
-
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 800) {
-            back_to_top.classList.add('show');
-        } else {
-            back_to_top.classList.remove('show');
-        }
-    });
-
-    back_to_top.addEventListener('click', () => {
-        window.scrollTo({
-            top: 0,
-            left: 0,
-            behavior: 'smooth'
+    if (back_to_top) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 800) {
+                back_to_top.classList.add('show');
+            } else {
+                back_to_top.classList.remove('show');
+            }
         });
-    });
+
+        back_to_top.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                left: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
 });

@@ -2,30 +2,30 @@
             <div class="header-container">
                 <div class="logo-section">
                      <a href="./index.html">
-                        <img src="./images/logo.png">
+                        <img src="./images/logo.png" alt="Athenian Nectar Logo">
                     </a>
                 </div>
 
-                <nav class="nav-links">
+                <nav class="nav-links" aria-label="Main navigation">
                     <a href="./index.html">Home</a>
                     <a href="./discover.html">Discover</a>
                     <a href="./tasks.html">Favorites</a>
-                    <span class="pill-divider"></span>
+                    <span class="pill-divider" aria-hidden="true"></span>
                     <a href="./about_us.html">About</a>
                     <a href="./contact_us.html">Contact</a>
                 </nav>
 
                 <div class="header-actions">
-                    <button class="hamburger-btn" aria-label="Toggle menu">
-                        <span></span>
-                        <span></span>
-                        <span></span>
+                    <button class="hamburger-btn" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="mobile-menu">
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
                     </button>
                 </div>
             </div>
         </header>
 
-        <nav class="mobile-dropdown">
+        <nav class="mobile-dropdown" id="mobile-menu" aria-label="Mobile navigation">
             <a href="./index.html">Home</a>
             <a href="./discover.html">Discover</a>
             <a href="./tasks.html">Favorites</a>

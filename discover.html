@@ -6,6 +6,7 @@
         <title> Discover</title> 
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Discover the best food, drinks, and hidden gems in Athens. Browse our curated guide and pick the perfect spot based on today's weather.">
         <meta name="author" content="Nikoletta Dimitriadi">
         <link rel="icon" href="./images/tabicon.png">
 
@@ -23,264 +24,269 @@
         <!-- HEADER -->
         <div id="header-placeholder"></div>
 
-       <div class="discover-container"> 
-            <div class="discover-header-layout">
-                
-                <div class="discover-header-text">
-                    <h1 class="orange-title" style="text-align: left; margin-bottom: 10px;">Discover Athens</h1>
-                    <h2>Planning on visiting today?</h2>
-                    <p class="subtitle">Here is the current weather to help you pick the perfect spot:</p>
-                </div>
+        <main>
+        <div class="discover-container"> 
+                <div class="discover-header-layout">
+                    
+                    <div class="discover-header-text">
+                        <h1 class="orange-title">Discover Athens</h1>
+                        <h2>Planning on visiting today?</h2>
+                        <p class="subtitle">Here is the current weather to help you pick the perfect spot:</p>
+                    </div>
 
-                <!-- WEATHER API-->
-                <div class="discover-header-widget">
-                    <div id="weather-widget" class="weather-card">
-                        <div class="weather-info">
-                            <h3><b>Athens Weather</b></h3>
-                            <p id="weather-description">Loading...</p>
-                            <h2 id="weather-temperature">--°C</h2>
-                        </div>
-                        <div class="weather-icon-container">
-                            <i id="weather-icon" class="bi bi-hourglass-split"></i>
+                    <!-- WEATHER API-->
+                    <div class="discover-header-widget">
+                        <div id="weather-widget" class="weather-card" aria-live="polite">
+                            <div class="weather-info">
+                                <h3><b>Athens Weather</b></h3>
+                                <p id="weather-description">Loading...</p>
+                                <h2 id="weather-temperature">--°C</h2>
+                            </div>
+                            <div class="weather-icon-container">
+                                <i id="weather-icon" class="bi bi-hourglass-split" aria-hidden="true"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
+            </div> 
+            
 
-            </div>
-        </div> 
-        
+            <!-- BLOG POSTS-->
+            <section class="blog-section" aria-label="Blog posts and search">
+                <div class="discover-container">
 
-        <!-- BLOG POSTS-->
-        <section class="blog-section">
-            <div class="discover-container">
+                    <!-- SEARCH BUTTON-->
+                    <div class="search-container">
+                        <i class="bi bi-search search-icon" aria-hidden="true"></i>
+                        <input type="text" id="blog-search" placeholder="Search for places, categories, or keywords" maxlength="25" aria-label="Search blog posts">
+                    </div>
 
-                <!-- SEARCH BUTTON-->
-                 <div class="search-container">
-                    <i class="bi bi-search search-icon"></i>
-                    <input type="text" id="blog-search" placeholder="Search for places, categories, or keywords" maxlength="25">
+                    <div class="blog-grid">
+                        
+                        <article class="blog-card" aria-labelledby="blog-title-1">
+                            <div class="blog-image-wrapper">
+                                <img src="./images/sample1.jpeg" class="blog-img" alt="Close up of a fresh pasta dish at ALEX pasta bar">
+                                <span class="blog-category" aria-label="Category: Italian">Italian</span>
+                                <button class="save-button" title="Save to Favorites" data-place="ALEX the fresh pasta bar" aria-label="Save ALEX the fresh pasta bar to favorites">
+                                    <i class="bi bi-bookmark" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                            <div class="blog-content">
+                                <h3 id="blog-title-1"><a href="#">A Taste of Italia: Culinary Reverie at ALEX the fresh pasta bar</a></h3>
+                                <p class="blog-description">
+                                    Buongiorno, fellow gastronomes! Today, we invite you to join us on a delightful 
+                                    journey through the savory treasures of ALEX the fresh pasta bar, an Italian 
+                                    haven nestled in the heart of Exarcheia. 
+                                </p>
+                                <div class="blog-bottom-part">
+                                    <span><i class="bi bi-calendar3" aria-hidden="true"></i>  Feb 15, 2026</span>
+                                    <a href="#" class="read-more"><b><b> Read More <span aria-hidden="true">→</span></b> </b></a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="blog-card" aria-labelledby="blog-title-2">
+                            <div class="blog-image-wrapper">
+                                <img src="./images/sample2.jpeg" class="blog-img" alt="Close up of a brunch dishes at Peggy Sue">
+                                <span class="blog-category" aria-label="Category: Brunch">Brunch</span>
+                                <button class="save-button" title="Save to Favorites" data-place="Peggy Sue" aria-label="Save Peggy Sue to favorites">
+                                    <i class="bi bi-bookmark" aria-hidden="true"> </i>
+                                </button>
+                            </div>
+                            <div class="blog-content">
+                                <h3 id="blog-title-2"><a href="#">Peggy Sue Athens: Brunch & All-Day Delights in Monastiraki</a></h3>
+                                <p class="blog-description">
+                                    Nestled right in the historic heart of Monastiraki, Peggy Sue has quickly become one of 
+                                    Athens’ go-to spots for cozy all-day brunch and café experiences. This vibrant coffee shop 
+                                    and brunch destination serves a thoughtfully curated menu that ranges from energizing breakfast 
+                                    bowls and artisan toasts to creative brunch plates and refreshing beverages.
+                                </p>
+                                <div class="blog-bottom-part">
+                                    <span><i class="bi bi-calendar3" aria-hidden="true"></i> Feb 9, 2026</span>
+                                    <a href="#" class="read-more"><b> Read More <span aria-hidden="true">→</span></b> </a>
+                                </div>
+                            </div>
+                        </article>
+
+                    <article class="blog-card" aria-labelledby="blog-title-3">
+                            <div class="blog-image-wrapper">
+                                <img src="./images/sample3.jpeg" class="blog-img" alt="Close up of cocktail drinks at the Bar in front of the Bar">
+                                <span class="blog-category" aria-label="Category: Cocktails">Cocktails</span>
+                                <button class="save-button" title="Save to Favorites" data-place="The Bar in front of the Bar" aria-label="Save the Bar in front of the Bar to favorites">
+                                    <i class="bi bi-bookmark" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                            <div class="blog-content">
+                                <h3 id="blog-title-3"><a href="#">The Bar in Front of the Bar: Athens’ Most Playfully Unconventional Drinking Spot</a></h3>
+                                <p class="blog-description">
+                                    In a neighborhood packed with nightlife options, The Bar in Front of the Bar stands out simply 
+                                    by refusing to be ordinary. Located in the lively streets of Monastiraki, its concept is exactly 
+                                    what its name suggests — and that’s what makes it brilliant.
+                                </p>
+                                <div class="blog-bottom-part">
+                                    <span><i class="bi bi-calendar3" aria-hidden="true"></i> Jan 29, 2026</span>
+                                    <a href="#" class="read-more"><b> Read More <span aria-hidden="true">→</span></b> </a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="blog-card" aria-labelledby="blog-title-4">
+                            <div class="blog-image-wrapper">
+                                <img src="./images/sample4.jpg" class="blog-img" alt="Close up of fresh ramen dish at Zuzuto Ramen">
+                                <span class="blog-category" aria-label="Category: Foreign">Foreign</span>
+                                <button class="save-button" title="Save to Favorites" data-place="Zuzuto Ramen" aria-label="Save Zuzuto Ramen to favorites">
+                                    <i class="bi bi-bookmark" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                            <div class="blog-content">
+                                <h3 id="blog-title-4"><a href="#">Ramen Reverie: Navigating Athens’ Noodle Nirvana at Zuzuto Ramen</a></h3>
+                                <p class="blog-description">
+                                    Welcome back, fellow food enthusiasts! Today, we embark on a savory journey through 
+                                    the heart of Athens to discover a hidden gem that has been stirring up a storm in 
+                                    the local culinary scene – Zuzuto Ramen. Join us as we slurp our way through bowls 
+                                    of steaming goodness, uncovering the secrets of this Athenian noodle haven.
+                                </p>
+                                <div class="blog-bottom-part">
+                                    <span><i class="bi bi-calendar3" aria-hidden="true"></i> Jan 14, 2026</span>
+                                    <a href="#" class="read-more"><b> Read More <span aria-hidden="true">→</span></b> </a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="blog-card" aria-labelledby="blog-title-5">
+                            <div class="blog-image-wrapper">
+                                <img src="./images/sample5.jpeg" class="blog-img" alt="Close up of beers at the Local Pub">
+                                <span class="blog-category" aria-label="Category: Beer">Beer</span>
+                                <button class="save-button" title="Save to Favorites" data-place="The Local Pub" aria-label="Save the Local Pub to favorites">
+                                    <i class="bi bi-bookmark" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                            <div class="blog-content">
+                                <h3 id="blog-title-5"><a href="#">The Local Pub: A Genuine Irish Spirit in the Northern Suburbs of Athens</a></h3>
+                                <p class="blog-description">
+                                    Tucked into the lively district of Chalandri, The Local Pub delivers something rare in 
+                                    the Athenian bar scene: an authentic Irish pub experience that feels both international and deeply local.
+                                </p>
+                                <div class="blog-bottom-part">
+                                    <span><i class="bi bi-calendar3" aria-hidden="true"></i> Jan 3, 2026</span>
+                                    <a href="#" class="read-more"><b> Read More <span aria-hidden="true">→</span></b> </a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="blog-card" aria-labelledby="blog-title-6">
+                            <div class="blog-image-wrapper">
+                                <img src="./images/sample6.jpg" class="blog-img" alt="Close up of fresh meze at Anixi Para Tetarto"> 
+                                <span class="blog-category" aria-label="Category: Greek">Greek</span>
+                                <button class="save-button" title="Save to Favorites" data-place="Anixi Para Tetarto" aria-label="Save Anixi Para Tetarto to favorites">
+                                    <i class="bi bi-bookmark" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                            <div class="blog-content">
+                                <h3 id="blog-title-6"><a href="#">Τhe Αrt of Surprise: Unveiling Seafood Wonders at Anixi Para Tetarto</a></h3>
+                                <p class="blog-description">
+                                    Kalimera, fellow seafood enthusiasts! Today, we invite you to embark on a gastronomic 
+                                    journey like no other at Anixi Para Tetarto, a Tsipouradiko in the northern suburbs of 
+                                    Athens that promises an authentic taste of the sea with a twist of surprise. Let the waves of flavors and 
+                                    the delight of fresh catches guide you through a culinary experience that celebrates 
+                                    the essence of Volos’ traditional tsipouro gatherings.
+                                </p>
+                                <div class="blog-bottom-part">
+                                    <span><i class="bi bi-calendar3" aria-hidden="true"></i> Dec 22, 2025</span>
+                                    <a href="#" class="read-more"><b> Read More <span aria-hidden="true">→</span></b> </a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="blog-card" aria-labelledby="blog-title-7">
+                            <div class="blog-image-wrapper">
+                                <img src="./images/sample7.JPEG" class="blog-img" alt="Close up of fresh pizza at LISA Athens">
+                                <span class="blog-category" aria-label="Category: Italian">Italian</span>
+                                <button class="save-button" title="Save to Favorites" data-place="LISA Athens" aria-label="Save LISA Athens to favorites">
+                                    <i class="bi bi-bookmark" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                            <div class="blog-content">
+                                <h3 id="blog-title-7"><a href="#">LISA Athens: Where Contemporary Pizza Meets Creative Craft in Athens</a></h3>
+                                <p class="blog-description">
+                                    In the heart of Kypseli, just off the lively pedestrian stretch of Fokionos Negri, 
+                                    LISA Athens has earned a reputation not simply as a pizza spot, but as one of the city’s 
+                                    most exciting contemporary pizzerias.
+                                </p>
+                                <div class="blog-bottom-part">
+                                    <span><i class="bi bi-calendar3" aria-hidden="true"></i> Dec 13, 2025</span>
+                                    <a href="#" class="read-more"><b> Read More <span aria-hidden="true">→</span></b> </a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="blog-card" aria-labelledby="blog-title-8">
+                            <div class="blog-image-wrapper">
+                                <img src="./images/sample8.JPEG" class="blog-img" alt="Close up of orzo dish at Elaias Gi">
+                                <span class="blog-category" aria-label="Category: Greek">Greek</span>
+                                <button class="save-button" title="Save to Favorites" data-place="Eleas Gi" aria-label="Save Eleas Gi to favorites">
+                                    <i class="bi bi-bookmark" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                            <div class="blog-content">
+                                <h3 id="blog-title-8"><a href="#">Eleas Gi — Greek Tradition Elevated with Panoramic Views</a></h3>
+                                <p class="blog-description">
+                                    Perched above Kifisia with sweeping views over Athens, Eleas Gi is far more than 
+                                    just a restaurant — it’s a celebration of Greek land, culture, and culinary heritage 
+                                    that’s been thoughtfully reimagined for the modern palate.
+                                </p>
+                                <div class="blog-bottom-part">
+                                    <span><i class="bi bi-calendar3" aria-hidden="true"></i> Dec 07, 2025</span>
+                                    <a href="#" class="read-more"><b> Read More <span aria-hidden="true">→</span></b> </a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="blog-card" aria-labelledby="blog-title-9">
+                            <div class="blog-image-wrapper">
+                                <img src="./images/sample9.JPEG" class="blog-img" alt="Close up of Indian dishes at Naanwich Athens">
+                                <span class="blog-category">Foreign</span>
+                                <button class="save-button" title="Save to Favorites" data-place="Naanwich Athens" aria-label="Save Naanwich Athens to favorites">
+                                    <i class="bi bi-bookmark" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                            <div class="blog-content">
+                                <h3 id="blog-title-9"><a href="#">Naanwich Athens — Indian Street‑Food Reinvented on Ermou Street</a></h3>
+                                <p class="blog-description">
+                                    Right in the heart of central Monastiraki, just off the buzzing pedestrian artery of Ermou Street, 
+                                    Naanwich delivers a refreshingly different kind of eating experience in Athens — one that blends 
+                                    Indian street‑food soul with urban casual dining.
+                                </p>
+                                <div class="blog-bottom-part">
+                                    <span><i class="bi bi-calendar3" aria-hidden="true"></i> Nov 25, 2025</span>
+                                    <a href="#" class="read-more"><b> Read More <span aria-hidden="true">→</span></b> </a>
+                                </div>
+                            </div>
+                        </article>
+
+                    </div>
+
+                    <div id="no-results-message" role="status" aria-live="polite">
+                        <i class="bi bi-search" aria-hidden="true" ></i>
+                        <p >We couldn't find any places matching your search. Try a different keyword!</p>
+                    </div>
+
                 </div>
+            </section>
 
-                <div class="blog-grid">
-                    
-                    <article class="blog-card">
-                        <div class="blog-image-wrapper">
-                            <img src="./images/sample1.jpeg" class="blog-img">
-                            <span class="blog-category">Italian</span>
-                            <button class="save-button" title="Save to Favorites" data-place="ALEX the fresh pasta bar">
-                                <i class="bi bi-bookmark"></i>
-                            </button>
-                        </div>
-                        <div class="blog-content">
-                            <h3><a href="#">A Taste of Italia: Culinary Reverie at ALEX the fresh pasta bar</a></h3>
-                            <p class="blog-description">
-                                Buongiorno, fellow gastronomes! Today, we invite you to join us on a delightful 
-                                journey through the savory treasures of ALEX the fresh pasta bar, an Italian 
-                                haven nestled in the heart of Exarcheia. 
-                            </p>
-                            <div class="blog-bottom-part">
-                                <span><i class="bi bi-calendar3"></i> Feb 15, 2026</span>
-                                <a href="#" class="read-more"><b><b> Read More <span>→</span></b> </b></a>
-                            </div>
-                        </div>
-                    </article>
+            <button id="back-to-top" aria-label="Scroll back to top">
+                <i class="bi bi-arrow-up" aria-hidden="true"></i>
+            </button>
+            
+           
 
-                    <article class="blog-card">
-                        <div class="blog-image-wrapper">
-                            <img src="./images/sample2.jpeg" class="blog-img">
-                            <span class="blog-category">Brunch</span>
-                            <button class="save-button" title="Save to Favorites" data-place="Peggy Sue">
-                                <i class="bi bi-bookmark"></i>
-                            </button>
-                        </div>
-                        <div class="blog-content">
-                            <h3><a href="#">Peggy Sue Athens: Brunch & All-Day Delights in Monastiraki</a></h3>
-                            <p class="blog-description">
-                                Nestled right in the historic heart of Monastiraki, Peggy Sue has quickly become one of 
-                                Athens’ go-to spots for cozy all-day brunch and café experiences. This vibrant coffee shop 
-                                and brunch destination serves a thoughtfully curated menu that ranges from energizing breakfast 
-                                bowls and artisan toasts to creative brunch plates and refreshing beverages.
-                            </p>
-                            <div class="blog-bottom-part">
-                                <span><i class="bi bi-calendar3"></i> Feb 9, 2026</span>
-                                <a href="#" class="read-more"><b> Read More <span>→</span></b> </a>
-                            </div>
-                        </div>
-                    </article>
+            <dark-mode-toggle></dark-mode-toggle>
 
-                   <article class="blog-card">
-                        <div class="blog-image-wrapper">
-                            <img src="./images/sample3.jpeg" class="blog-img">
-                            <span class="blog-category">Cocktails</span>
-                            <button class="save-button" title="Save to Favorites" data-place="The Bar in front of the Bar">
-                                <i class="bi bi-bookmark"></i>
-                            </button>
-                        </div>
-                        <div class="blog-content">
-                            <h3><a href="#">The Bar in Front of the Bar: Athens’ Most Playfully Unconventional Drinking Spot</a></h3>
-                            <p class="blog-description">
-                                In a neighborhood packed with nightlife options, The Bar in Front of the Bar stands out simply 
-                                by refusing to be ordinary. Located in the lively streets of Monastiraki, its concept is exactly 
-                                what its name suggests — and that’s what makes it brilliant.
-                            </p>
-                            <div class="blog-bottom-part">
-                                <span><i class="bi bi-calendar3"></i> Jan 29, 2026</span>
-                                <a href="#" class="read-more"><b> Read More <span>→</span></b> </a>
-                            </div>
-                        </div>
-                    </article>
+        </main>
 
-                    <article class="blog-card">
-                        <div class="blog-image-wrapper">
-                            <img src="./images/sample4.jpg" class="blog-img">
-                            <span class="blog-category">Foreign</span>
-                            <button class="save-button" title="Save to Favorites" data-place="Zuzuto Ramen">
-                                <i class="bi bi-bookmark"></i>
-                            </button>
-                        </div>
-                        <div class="blog-content">
-                            <h3><a href="#">Ramen Reverie: Navigating Athens’ Noodle Nirvana at Zuzuto Ramen</a></h3>
-                            <p class="blog-description">
-                                Welcome back, fellow food enthusiasts! Today, we embark on a savory journey through 
-                                the heart of Athens to discover a hidden gem that has been stirring up a storm in 
-                                the local culinary scene – Zuzuto Ramen. Join us as we slurp our way through bowls 
-                                of steaming goodness, uncovering the secrets of this Athenian noodle haven.
-                            </p>
-                            <div class="blog-bottom-part">
-                                <span><i class="bi bi-calendar3"></i> Jan 14, 2026</span>
-                                <a href="#" class="read-more"><b> Read More <span>→</span></b> </a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="blog-card">
-                        <div class="blog-image-wrapper">
-                            <img src="./images/sample5.jpeg" class="blog-img">
-                            <span class="blog-category">Beer</span>
-                            <button class="save-button" title="Save to Favorites" data-place="The Local Pub">
-                                <i class="bi bi-bookmark"></i>
-                            </button>
-                        </div>
-                        <div class="blog-content">
-                            <h3><a href="#">The Local Pub: A Genuine Irish Spirit in the Northern Suburbs of Athens</a></h3>
-                            <p class="blog-description">
-                                Tucked into the lively district of Chalandri, The Local Pub delivers something rare in 
-                                the Athenian bar scene: an authentic Irish pub experience that feels both international and deeply local.
-                            </p>
-                            <div class="blog-bottom-part">
-                                <span><i class="bi bi-calendar3"></i> Jan 3, 2026</span>
-                                <a href="#" class="read-more"><b> Read More <span>→</span></b> </a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="blog-card">
-                        <div class="blog-image-wrapper">
-                            <img src="./images/sample6.jpg" class="blog-img">
-                            <span class="blog-category">Greek</span>
-                            <button class="save-button" title="Save to Favorites" data-place="Anixi Para Tetarto">
-                                <i class="bi bi-bookmark"></i>
-                            </button>
-                        </div>
-                        <div class="blog-content">
-                            <h3><a href="#">Τhe Αrt of Surprise: Unveiling Seafood Wonders at Anixi Para Tetarto</a></h3>
-                            <p class="blog-description">
-                                Kalimera, fellow seafood enthusiasts! Today, we invite you to embark on a gastronomic 
-                                journey like no other at Anixi Para Tetarto, a Tsipouradiko in the northern suburbs of 
-                                Athens that promises an authentic taste of the sea with a twist of surprise. Let the waves of flavors and 
-                                the delight of fresh catches guide you through a culinary experience that celebrates 
-                                the essence of Volos’ traditional tsipouro gatherings.
-                            </p>
-                            <div class="blog-bottom-part">
-                                <span><i class="bi bi-calendar3"></i> Dec 22, 2025</span>
-                                <a href="#" class="read-more"><b> Read More <span>→</span></b> </a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="blog-card">
-                        <div class="blog-image-wrapper">
-                            <img src="./images/sample7.JPEG" class="blog-img">
-                            <span class="blog-category">Italian</span>
-                            <button class="save-button" title="Save to Favorites" data-place="LISA Athens">
-                                <i class="bi bi-bookmark"></i>
-                            </button>
-                        </div>
-                        <div class="blog-content">
-                            <h3><a href="#">LISA Athens: Where Contemporary Pizza Meets Creative Craft in Athens</a></h3>
-                            <p class="blog-description">
-                                In the heart of Kypseli, just off the lively pedestrian stretch of Fokionos Negri, 
-                                LISA Athens has earned a reputation not simply as a pizza spot, but as one of the city’s 
-                                most exciting contemporary pizzerias.
-                            </p>
-                            <div class="blog-bottom-part">
-                                <span><i class="bi bi-calendar3"></i> Dec 13, 2025</span>
-                                <a href="#" class="read-more"><b> Read More <span>→</span></b> </a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="blog-card">
-                        <div class="blog-image-wrapper">
-                            <img src="./images/sample8.JPEG" class="blog-img">
-                            <span class="blog-category">Greek</span>
-                            <button class="save-button" title="Save to Favorites" data-place="Eleas Gi">
-                                <i class="bi bi-bookmark"></i>
-                            </button>
-                        </div>
-                        <div class="blog-content">
-                            <h3><a href="#">Eleas Gi — Greek Tradition Elevated with Panoramic Views</a></h3>
-                            <p class="blog-description">
-                                Perched above Kifisia with sweeping views over Athens, Eleas Gi is far more than 
-                                just a restaurant — it’s a celebration of Greek land, culture, and culinary heritage 
-                                that’s been thoughtfully reimagined for the modern palate.
-                            </p>
-                            <div class="blog-bottom-part">
-                                <span><i class="bi bi-calendar3"></i> Dec 07, 2025</span>
-                                <a href="#" class="read-more"><b> Read More <span>→</span></b> </a>
-                            </div>
-                        </div>
-                    </article>
-
-                     <article class="blog-card">
-                        <div class="blog-image-wrapper">
-                            <img src="./images/sample9.JPEG" class="blog-img">
-                            <span class="blog-category">Foreign</span>
-                            <button class="save-button" title="Save to Favorites" data-place="Naanwich Athens">
-                                <i class="bi bi-bookmark"></i>
-                            </button>
-                        </div>
-                        <div class="blog-content">
-                            <h3><a href="#">Naanwich Athens — Indian Street‑Food Reinvented on Ermou Street</a></h3>
-                            <p class="blog-description">
-                                Right in the heart of central Monastiraki, just off the buzzing pedestrian artery of Ermou Street, 
-                                Naanwich delivers a refreshingly different kind of eating experience in Athens — one that blends 
-                                Indian street‑food soul with urban casual dining.
-                            </p>
-                            <div class="blog-bottom-part">
-                                <span><i class="bi bi-calendar3"></i> Nov 25, 2025</span>
-                                <a href="#" class="read-more"><b> Read More <span>→</span></b> </a>
-                            </div>
-                        </div>
-                    </article>
-
-                </div>
-
-                <div id="no-results-message">
-                    <i class="bi bi-search"></i>
-                    <p >We couldn't find any places matching your search. Try a different keyword!</p>
-                </div>
-
-            </div>
-        </section>
-
-        <button id="back-to-top">
-            <i class="bi bi-arrow-up"></i>
-        </button>
-        
         <!-- FOOTER-->
         <div id="footer-placeholder"></div>
 
-        <dark-mode-toggle></dark-mode-toggle>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     </body>

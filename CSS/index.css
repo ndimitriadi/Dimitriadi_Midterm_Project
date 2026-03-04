@@ -281,6 +281,8 @@ span{
             transition: background 0.3s;
         }
 
+        
+
         .dot.active {
             background: #333;
         }

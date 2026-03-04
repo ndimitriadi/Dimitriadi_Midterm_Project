@@ -6,6 +6,7 @@
         <title> Favorites</title> 
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Organize your Athenian itinerary! Keep track of the restaurants, bars, and hidden gems you want to visit in Athens.">
         <meta name="author" content="Nikoletta Dimitriadi">
         <link rel="icon" href="./images/tabicon.png">
 
@@ -23,160 +24,163 @@
         <!-- HEADER -->
         <div id="header-placeholder"></div>
 
+        <main>
+            <div class="tasks-container">
+                <h1 class="orange-title">My Athenian Favorites</h1>
+                
+                <div class="top-buttons">
+                    <button class="orange-button add-btn" id="add_button"><i class="bi bi-plus-lg" aria-hidden="true"></i> Add Place</button>
+                    <button class="clear-btn" id="clear_all_button"><i class="bi bi-trash3" aria-hidden="true"></i> Clear All</button>
+                </div>
 
-        <div class="tasks-container">
-            <h1 class="orange-title">My Athenian Favorites</h1>
-            
-            <div class="top-buttons">
-                <button class="orange-button add-btn" id="add_button"><i class="bi bi-plus-lg"></i> Add Place</button>
-                <button class="clear-btn" id="clear_all_button"><i class="bi bi-trash3"></i> Clear All</button>
-            </div>
+                <div id="tasks_form_container" class="form-card">
+                    <h2>Add a New Favorite</h2>
+                    <form id="tasks_form">
+                        <div class="input-row">
+                            <label>
+                                Place:
+                                <input type="text" id="place" maxlength="50" placeholder="e.g., Baba Au Rum" required>
+                            </label>
+                            <label>
+                                Date:
+                                <input type="date" id="date" onclick="this.showPicker()" required>
+                            </label>
+                        </div>
 
-            <div id="tasks_form_container" class="form-card">
-                <h2>Add a New Favorite</h2>
-                <form id="tasks_form">
-                    <div class="input-row">
-                        <label>
-                            Place:
-                            <input type="text" id="place" maxlength="50" placeholder="e.g., Baba Au Rum" required>
+                        <label class="description-style spacing">
+                            Description:
+                            <input type="text" id="description" maxlength="200" placeholder="e.g., Try the spicy cocktail" required>
                         </label>
-                        <label>
-                            Date:
-                            <input type="date" id="date" onclick="this.showPicker()" required>
-                        </label>
+
+                        <div class="input-row spacing">
+                            <label>
+                                Status:
+                                <select id="status">
+                                    <option>Pending</option>
+                                    <option>Visited</option>
+                                </select>
+                            </label>
+                            <label>
+                                Priority:
+                                <select id="priority">
+                                    <option value="low">Optional</option>
+                                    <option value="medium">Maybe</option>
+                                    <option value="high">Must Visit</option>
+                                </select>
+                            </label>
+                        </div>
+
+                    <div class="form-buttons">
+                        <button type="button" id="cancel_task_button" class="cancel-btn">Cancel</button>                    
+                        <button class="submit orange-button">Submit</button>
                     </div>
+                    
+                    </form>
+                </div>
 
-                    <label class="description-style spacing">
-                        Description:
-                        <input type="text" id="description" maxlength="200" placeholder="e.g., Try the spicy cocktail" required>
-                    </label>
+                <div class="summary-container">
+                    <div class="summary-card">
+                        <i class="bi bi-geo-alt-fill" aria-hidden="true"></i>
+                        <div class="summary-info">
+                            <span class="summary-number" id="total_count">0</span>
+                            <span class="summary-label">TOTAL PLACES</span>
+                        </div>
+                    </div>
+                    <div class="summary-card">
+                        <i class="bi bi-hourglass-split" aria-hidden="true"></i>
+                        <div class="summary-info">
+                            <span class="summary-number" id="pending_count">0</span>
+                            <span class="summary-label">PENDING</span>
+                        </div>
+                    </div>
+                    <div class="summary-card">
+                        <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
+                        <div class="summary-info">
+                            <span class="summary-number" id="visited_count">0</span>
+                            <span class="summary-label">VISITED</span>
+                        </div>
+                    </div>
+                </div>
 
-                    <div class="input-row spacing">
+                <div class="controls-card">
+                    <div class="controls">
                         <label>
-                            Status:
-                            <select id="status">
-                                <option>Pending</option>
-                                <option>Visited</option>
+                            <i class="bi bi-funnel" aria-hidden="true"></i> Filter by:
+                            <select id="statusFilter">
+                                <option value="all">All</option>
+                                
+                                <optgroup label="Status">
+                                    <option value="Pending">Pending</option>
+                                    <option value="Visited">Visited</option>
+                                </optgroup>
+                                
+                                <optgroup label="Priority">
+                                    <option value="high">Must Visit</option>
+                                    <option value="medium">Maybe</option>
+                                    <option value="low">Optional</option>
+                                </optgroup>
                             </select>
                         </label>
+                    
                         <label>
-                            Priority:
-                            <select id="priority">
-                                <option value="low">Optional</option>
-                                <option value="medium">Maybe</option>
-                                <option value="high">Must Visit</option>
+                            <i class="bi bi-sort-down" aria-hidden="true"></i> Sort by:
+                            <select id="sortTasks">
+                                <option value="none">None</option>
+                                <optgroup label="Date">
+                                    <option value="date-asc">Oldest to Newest</option>
+                                    <option value="date-desc">Newest to Oldest</option>
+                                </optgroup>
+                                <optgroup label="Place">
+                                    <option value="place-asc">Place (A to Z)</option>
+                                    <option value="place-desc">Place (Z to A)</option>
+                                </optgroup>
                             </select>
                         </label>
                     </div>
-
-                <div class="form-buttons">
-                    <button type="button" id="cancel_task_button" class="cancel-btn">Cancel</button>                    
-                    <button class="submit orange-button">Submit</button>
                 </div>
-                
-                </form>
+
+                <div class="table-container">
+                    <table id="task_table">
+                        <thead>
+                            <tr>
+                                <th><i class="bi bi-geo-alt" aria-hidden="true"></i> Place</th>
+                                <th><i class="bi bi-text-left" aria-hidden="true"></i> Description</th>
+                                <th><i class="bi bi-clock" aria-hidden="true"></i> Date</th>
+                                <th><i class="bi bi-hourglass-split" aria-hidden="true"></i> Status</th>
+                                <th><i class="bi bi-patch-exclamation" aria-hidden="true"></i> Priority</th>
+                                <th><i class="bi bi-grid" aria-hidden="true"></i> Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="task_table_body">
+                        </tbody>
+                    </table>
+                </div>
             </div>
 
-            <div class="summary-container">
-                <div class="summary-card">
-                    <i class="bi bi-geo-alt-fill" ></i>
-                    <div class="summary-info">
-                        <span class="summary-number" id="total_count">0</span>
-                        <span class="summary-label">TOTAL PLACES</span>
+            <button id="back-to-top" aria-label="Scroll back to top">
+                <i class="bi bi-arrow-up" aria-hidden="true"></i>
+            </button>
+
+            <!-- custom clear all confrimation window-->
+            <div id="confirmation_window" class="custom-confirm" role="dialog" aria-modal="true" aria-labelledby="popup-title">
+                <div class="custom-confirm-content">
+                    <i class="bi bi-exclamation-triangle" aria-hidden="true"></i>
+                    <h3 id="popup-title">Clear All Favorites?</h3>
+                    <p>Are you sure you want to clear all your favorites? This cannot be undone.</p>
+                    <div class="custom-confirm-buttons">
+                        <button id="answer_no" class="orange-button confirm_cancel_button" >Cancel</button>
+                        <button id="answer_yes" class="orange-button confirm_delete_button" >Yes, Delete All</button>
                     </div>
                 </div>
-                <div class="summary-card">
-                    <i class="bi bi-hourglass-split"></i>
-                    <div class="summary-info">
-                        <span class="summary-number" id="pending_count">0</span>
-                        <span class="summary-label">PENDING</span>
-                    </div>
-                </div>
-                <div class="summary-card">
-                    <i class="bi bi-check-circle-fill" ></i>
-                    <div class="summary-info">
-                        <span class="summary-number" id="visited_count">0</span>
-                        <span class="summary-label">VISITED</span>
-                    </div>
-                </div>
             </div>
 
-            <div class="controls-card">
-                <div class="controls">
-                    <label>
-                        <i class="bi bi-funnel"></i> Filter by:
-                        <select id="statusFilter">
-                            <option value="all">All</option>
-                            
-                            <optgroup label="Status">
-                                <option value="Pending">Pending</option>
-                                <option value="Visited">Visited</option>
-                            </optgroup>
-                            
-                            <optgroup label="Priority">
-                                <option value="high">Must Visit</option>
-                                <option value="medium">Maybe</option>
-                                <option value="low">Optional</option>
-                            </optgroup>
-                        </select>
-                    </label>
-                
-                    <label>
-                        <i class="bi bi-sort-down"></i> Sort by:
-                        <select id="sortTasks">
-                            <option value="none">None</option>
-                            <optgroup label="Date">
-                                <option value="date-asc">Oldest to Newest</option>
-                                <option value="date-desc">Newest to Oldest</option>
-                            </optgroup>
-                            <optgroup label="Place">
-                                <option value="place-asc">Place (A to Z)</option>
-                                <option value="place-desc">Place (Z to A)</option>
-                            </optgroup>
-                        </select>
-                    </label>
-                </div>
-            </div>
+            <dark-mode-toggle></dark-mode-toggle>
 
-            <div class="table-container">
-                <table id="task_table">
-                    <thead>
-                        <tr>
-                            <th><i class="bi bi-geo-alt"></i> Place</th>
-                            <th><i class="bi bi-text-left"></i> Description</th>
-                            <th><i class="bi bi-clock"></i> Date</th>
-                            <th><i class="bi bi-hourglass-split"></i> Status</th>
-                            <th><i class="bi bi-patch-exclamation"></i> Priority</th>
-                            <th><i class="bi bi-grid"></i> Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody id="task_table_body">
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <button id="back-to-top">
-            <i class="bi bi-arrow-up"></i>
-        </button>
-
+        </main>
         <!-- FOOTER-->
         <div id="footer-placeholder"></div>
 
-        <dark-mode-toggle></dark-mode-toggle>
-
-        <!-- custom clear all confrimation window-->
-        <div id="confirmation_window" class="custom-confirm">
-            <div class="custom-confirm-content">
-                <i class="bi bi-exclamation-triangle" ></i>
-                <h3>Clear All Favorites?</h3>
-                <p>Are you sure you want to clear all your favorites? This cannot be undone.</p>
-                <div class="custom-confirm-buttons">
-                     <button id="answer_no" class="orange-button confirm_cancel_button" >Cancel</button>
-                    <button id="answer_yes" class="orange-button confirm_delete_button" >Yes, Delete All</button>
-                </div>
-            </div>
-        </div>
+        
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     </body>

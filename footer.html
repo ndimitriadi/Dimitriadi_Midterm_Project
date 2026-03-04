@@ -4,16 +4,16 @@
 
             <!-- Left column -->
             <div class="footer-col footer-left">
-                <img src="./images/logo.png" class="footer-logo">
+                <img src="./images/logo.png" class="footer-logo" alt="Athenian Nectar Logo">
 
-                <a href="mailto:atheniannectar@gmail.com" class="footer-email">
+                <a href="mailto:atheniannectar@gmail.com" class="footer-email" aria-label="Email us at atheniannectar@gmail.com">
                     atheniannectar@gmail.com
                 </a>
 
                 <div class="footer-social">
-                    <a href="#"><img src="./images/instagram.png"></a>
-                    <a href="#"><img src="./images/twitter.png"></a>
-                    <a href="#"><img src="./images/facebook.png"></a>
+                    <a href="#" aria-label="Visit our Instagram"><img src="./images/instagram.png" alt="Instagram Icon"></a>
+                    <a href="#" aria-label="Visit our Twitter"><img src="./images/twitter.png" alt="Twitter Icon"></a>
+                    <a href="#" aria-label="Visit our Facebook"><img src="./images/facebook.png" alt="Facebook Icon"></a>
                 </div>
 
                 <div class="footer-terms">
@@ -24,7 +24,7 @@
             </div>
 
             <!-- Middle column -->
-            <div class="footer-col footer-links">
+            <div class="footer-col footer-links" aria-label="Footer navigation">
                 <a href="./index.html">Home</a>
                 <a href="./discover.html">Discover</a>
                 <a href="./tasks.html">Favorites</a>
@@ -33,12 +33,13 @@
             </div>
 
             <!-- Right column -->
-            <div class="newsletter">
-                <p> Subscribe to our newsletter </p>
+            <div class="newsletter" aria-labelledby="newsletter-title">
+                <p id="newsletter-title"> Subscribe to our newsletter </p>
 
                 <form>
-                    <input class="row form-area" placeholder="Your email" type="email" name="email" maxlength="40" required>
-                    <button class="newsletter-button"> Submit </button>
+                    <label for="footer-email" style="display:none;">Email Address</label>
+                    <input id="footer-email" class="row form-area" placeholder="Your email" type="email" name="email" maxlength="40" required>
+                    <button type="submit" class="newsletter-button"> Submit </button>
                 </form>
 
             </div>

@@ -20,6 +20,11 @@
     text-align: left;
 }
 
+.discover-header-text .orange-title{
+    text-align: left;
+    margin-bottom: 10px;
+}
+
 .discover-header-widget {
     display: flex;
     justify-content: flex-end;

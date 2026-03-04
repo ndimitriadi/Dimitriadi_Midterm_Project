@@ -159,7 +159,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (saved_tasks.length === 0) {
             recent_tasks_grid.innerHTML = `
               <div class="empty_table_index">
-                  <i class="bi bi-bookmark-star"></i>
+                  <i class="bi bi-bookmark-star" aria-hidden="true"></i>
                   <p>No places added yet.  Head to your favorites to get started!</p>
               </div>    
             `;
@@ -180,7 +180,7 @@ document.addEventListener("DOMContentLoaded", () => {
             card.classList.add("recent-task-card");
 
             card.innerHTML = `
-                <i class="bi bi-geo-alt"></i> ${task.place}
+                <i class="bi bi-geo-alt" aria-hidden="true"></i> ${task.place}
                 <p><strong>Priority:</strong> 
                     <span>${format_priority(task.priority)}</span>
                 </p>
@@ -208,7 +208,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 charts_grid.style.display = "block";
                 charts_grid.innerHTML = `
                     <div class="empty_table_index">
-                        <i class="bi bi-pie-chart"></i>
+                        <i class="bi bi-pie-chart" aria-hidden="true"></i>
                         <p>No data to display yet.  Add some places to your favorites to see your culinary stats!</p>
                     </div>
                 `;
