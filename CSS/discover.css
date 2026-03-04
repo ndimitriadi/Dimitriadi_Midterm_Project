@@ -194,3 +194,31 @@
 [data-theme="dark"] .blog-description {
     color: #cccccc;
 }
+
+
+/* ------------- SAVE BUTTON--------------*/
+.save-button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    border: none;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #e37e1c;
+    font-size: 16px;
+    transition: transform 0.2s ease, background 0.2s ease;
+    z-index: 10; /* sits above the image */
+}
+
+.save-button:hover {
+    transform: scale(1.15);
+}
+
+[data-theme="dark"] .save-button {
+    background: var(--bg-color);
+}

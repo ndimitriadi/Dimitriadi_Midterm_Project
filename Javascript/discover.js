@@ -59,3 +59,55 @@ async function athens_weather() {
 }
 
 document.addEventListener("DOMContentLoaded", athens_weather);
+
+
+//SAVE BUTTON
+document.addEventListener('DOMContentLoaded', () => {
+    const save_button = document.querySelectorAll('.save-button');
+    
+    let saved_tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+
+    save_button.forEach(btn => {
+        const place = btn.getAttribute('data-place');
+        const icon = btn.querySelector('i');
+
+        if (saved_tasks.some(task => task.place === place)) {
+            icon.classList.remove('bi-bookmark');
+            icon.classList.add('bi-bookmark-fill');
+        }
+
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            
+            // Re-fetch in case something was saved in other tab or return an empty array
+            saved_tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+            
+            //checking if it is already in the array
+            const taskIndex = saved_tasks.findIndex(task => task.place === place);
+
+            if (taskIndex === -1) {
+                
+                const today = new Date().toISOString().split('T')[0];
+                
+                saved_tasks.push({
+                    place: place,
+                    priority: "medium", 
+                    date: today,
+                    status: "Pending"  
+                });
+                
+                localStorage.setItem('tasks', JSON.stringify(saved_tasks));
+                
+                icon.classList.remove('bi-bookmark');
+                icon.classList.add('bi-bookmark-fill');
+                
+            } else {
+                //unsave
+                saved_tasks.splice(taskIndex, 1);
+                localStorage.setItem('tasks', JSON.stringify(saved_tasks));
+                icon.classList.remove('bi-bookmark-fill');
+                icon.classList.add('bi-bookmark');
+            }
+        });
+    });
+});
