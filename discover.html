@@ -48,11 +48,18 @@
 
             </div>
         </div> 
-        <hr class="line">
+        
 
         <!-- BLOG POSTS-->
         <section class="blog-section">
             <div class="discover-container">
+
+                <!-- SEARCH BUTTON-->
+                 <div class="search-container">
+                    <i class="bi bi-search search-icon"></i>
+                    <input type="text" id="blog-search" placeholder="Search for places, categories, or keywords" maxlength="25">
+                </div>
+
                 <div class="blog-grid">
                     
                     <article class="blog-card">
@@ -257,9 +264,18 @@
                     </article>
 
                 </div>
+
+                <div id="no-results-message">
+                    <i class="bi bi-search"></i>
+                    <p >We couldn't find any places matching your search. Try a different keyword!</p>
+                </div>
+
             </div>
         </section>
 
+        <button id="back-to-top">
+            <i class="bi bi-arrow-up"></i>
+        </button>
         
         <!-- FOOTER-->
         <div id="footer-placeholder"></div>

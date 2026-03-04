@@ -107,3 +107,25 @@ customElements.define('dark-mode-toggle', DarkMode);
 
 
 /*-----------------------------------------------------*/
+
+
+/*--------------- BACK TO TOP BUTTON-----------------------------*/
+document.addEventListener('DOMContentLoaded', () => {
+    const back_to_top = document.querySelector('#back-to-top');
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 800) {
+            back_to_top.classList.add('show');
+        } else {
+            back_to_top.classList.remove('show');
+        }
+    });
+
+    back_to_top.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'smooth'
+        });
+    });
+});

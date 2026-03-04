@@ -111,3 +111,38 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+
+// SEARCH BUTTON
+document.addEventListener('DOMContentLoaded', () => {
+    const blog_search = document.querySelector('#blog-search');
+    const blog_card = document.querySelectorAll('.blog-card');
+    const no_results_message = document.querySelector('#no-results-message'); 
+
+    blog_search.addEventListener('input', (e) => {
+        const search_input = e.target.value.toLowerCase();
+        
+        let reults_counter = 0; 
+
+        blog_card.forEach(card => {
+            const title = card.querySelector('h3').innerText.toLowerCase();
+            const category = card.querySelector('.blog-category').innerText.toLowerCase();
+            const description = card.querySelector('.blog-description').innerText.toLowerCase();
+
+            if (title.includes(search_input) || category.includes(search_input) || description.includes(search_input)) {
+                card.style.display = 'flex'; 
+                reults_counter++; 
+            } else {
+                card.style.display = 'none'; 
+            }
+        });
+
+        if (no_results_message) {
+            if (reults_counter === 0) {
+                no_results_message.style.display = 'block'; 
+            } else {
+                no_results_message.style.display = 'none'; 
+            }
+        }
+    });
+});
