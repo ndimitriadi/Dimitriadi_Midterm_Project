@@ -27,8 +27,7 @@
 
 /* ---------------WEATHER API -------------------------------*/
 .weather-card {
-    background: var(--surface-color, #ffffff);
-    border: 1px solid var(--border-color, #dddddd);
+    border: 1px solid var(--border-color);
     border-radius: 12px;
     padding: 25px 35px; 
     display: flex;
@@ -183,7 +182,7 @@
 [data-theme="dark"] .blog-card,
 [data-theme="dark"] .weather-card {
     background-color: #1e1e1e; 
-    border-color: #333333;
+    border: none;
 }
 
 [data-theme="dark"] .blog-content h3 a {

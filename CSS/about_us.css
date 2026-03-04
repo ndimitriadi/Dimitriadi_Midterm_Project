@@ -41,9 +41,9 @@
 }
 
 [data-theme="dark"] .team-member {
-     border: 1px solid var(--border-color);
+    background-color: #1e1e1e;
+    border: none;
 }
-
 .team-avatar{
     width: 220px;
     height: 220px;

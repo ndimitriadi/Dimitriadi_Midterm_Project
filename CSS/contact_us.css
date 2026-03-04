@@ -74,7 +74,7 @@ a.contact-email:hover{
 }
 
 [data-theme="dark"] .form-card {
-     border: 1px solid var(--border-color);
+    background-color: #1e1e1e;
 }
 
 .subtitle{

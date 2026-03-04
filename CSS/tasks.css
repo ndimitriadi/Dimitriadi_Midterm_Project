@@ -233,10 +233,6 @@
     background-color: #f3f3f3a8; 
 }
 
-[data-theme="dark"] #task_table tr:nth-child(even) {
-    background-color: rgba(255, 255, 255, 0.137); 
-}
-
 #task_table td input[type="text"],
 #task_table td input[type="date"],
 #task_table td select,
@@ -409,4 +405,36 @@
 .summary-label {
     font-size: 14px;
     color: var(--text-muted);
+}
+
+/*------------DARK MODE-----------------*/
+[data-theme="dark"] .controls-card,
+[data-theme="dark"] .table-container,
+[data-theme="dark"] .summary-card {
+    background-color: #1e1e1e;
+    border: none;
+}
+
+/* 2. All Inputs, Selects, and Textareas */
+[data-theme="dark"] #tasks_form input,
+[data-theme="dark"] #tasks_form select,
+[data-theme="dark"] .controls select,
+[data-theme="dark"] #task_table td input[type="text"],
+[data-theme="dark"] #task_table td input[type="date"],
+[data-theme="dark"] #task_table td select,
+[data-theme="dark"] #task_table td textarea,
+[data-theme="dark"] #sortTasks,
+[data-theme="dark"] #statusFilter {
+    background-color: #1e1e1e;
+    border-color: #333333;
+    color: #ffffff;
+}
+
+[data-theme="dark"] #task_table tr:nth-child(even) {
+    background-color: #2e2e2e; 
+}
+
+[data-theme="dark"] .cancel-btn:hover {
+    background-color: #333333;
+    color: #ffffff;
 }
